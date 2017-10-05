@@ -38,4 +38,4 @@ for t in $(echo "${!TOPICS[@]}" | tr " " "\n" | sort); do
 done
 
 echo -e $OUT > glob.tex
-echo "All .tex files have benn globbed into glob.tex!"
+echo "All .tex files have been globbed into glob.tex!"
