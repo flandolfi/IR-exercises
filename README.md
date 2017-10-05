@@ -8,29 +8,78 @@ Paolo Ferragina.
 
 Like the course, the various solutions will be divided into the following topics:
 
-  1. **Introduction**: Boolean retrieval model. Matrix document-term. Inverted list: dictionary + postings. How to implement an AND, OR and NOT queries, and their time complexities.
+  1. **Introduction**: Boolean retrieval model. Matrix document-term. Inverted
+  list: dictionary + postings. How to implement an AND, OR and NOT queries, and
+  their time complexities.
+
   2. **Crawling**: Mercator, Bloom Filters, Consistent Hashing, Web graph.
-  3. **Locality-Sensitive Hashing**: K-means, Hamming distance, Locality Sensitive Hashing (LSH).
-  4. **Documents Compression**: Compressed storage of documents: LZ-based compression. Storage and Transmission of single/group of file(s): Delta compression (Zdelta), File Synchronization (rsync, zsync), and Set Reconciliation.
-  5. **Parsing and Text Laws**: Parsing: tokenization, normalization, lemmatization, stemming, thesauri. Statistical properties of texts: Zipf law: classical and generalized, Heaps law, Luhn's consideration.
-  6. **Index Construction**: The issue of hierarchical memories: I/O-model. Index construction: multi-way mergesort, BSBI and SPIMI. Sketch on MapReduce. Distributed indexing: Term-based vs Doc-based partitioning. Dynamic indexing: two indexes, a cascade of indexes.
-  7. **Postings Compression**: Posting list compression, codes: gamma, delta, variable bytes, PForDelta and Elias-Fano. Rank and Select data structures, two approaches: the case of B untouched and extra o(B) bits, and the case of Elias-Fano's approach with B compressed. Succinct representation of binary trees and its navigational operations (heap like notation).
-  8. **Dictionary Search**: Exact search: hashing with chaining, univeral hashing, cuckoo hashing. Prefix search: compacted trie, front coding, 2-level indexing. Edit distance via brute-force approach, or Dynamic Programming (possibly weighted). Overlap measure with k-gram index. Edit distance with k-gram index. One-error match. Wild-card queries (permuterm, k-gram). Phonetic match. Context-sensitive match.
-  9. **Query Resolver**: Query processing: skip pointers (with solution based on dynamic programming), caching, phrase queries. Zone index and tiered index. The auto-complete problem and its solutions for the top-1, top-2, ..., top-k strings.
-  10. **Text Ranking**: Text-based ranking: dice, jaccard, tf-idf. Vector space model. Storage of tf-idf and use for computing document-query similarity. Fast top-k retrieval: high idf, champion lists, many query-terms, fancy hits, clustering. Exact Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio, pseudo-relevance feedback, query expansion. Performance measures: precision, recall, F1 and user happiness.
-  11. **Web Ranking**: Random Walks. Link-based ranking: pagerank, topic-based pagerank, personalized pagerank, CoSim rank.
+
+  3. **Locality-Sensitive Hashing**: K-means, Hamming distance, Locality
+  Sensitive Hashing (LSH).
+
+  4. **Documents Compression**: Compressed storage of documents: LZ-based
+  compression. Storage and Transmission of single/group of file(s): Delta
+  compression (Zdelta), File Synchronization (rsync, zsync), and Set
+  Reconciliation.
+
+  5. **Parsing and Text Laws**: Parsing: tokenization, normalization,
+  lemmatization, stemming, thesauri. Statistical properties of texts: Zipf law:
+  classical and generalized, Heaps law, Luhn's consideration.
+
+  6. **Index Construction**: The issue of hierarchical memories: I/O-model.
+  Index construction: multi-way mergesort, BSBI and SPIMI. Sketch on MapReduce.
+  Distributed indexing: Term-based vs Doc-based partitioning. Dynamic indexing:
+  two indexes, a cascade of indexes.
+
+  7. **Postings Compression**: Posting list compression, codes: gamma, delta,
+  variable bytes, PForDelta and Elias-Fano. Rank and Select data structures, two
+  approaches: the case of B untouched and extra o(B) bits, and the case of
+  Elias-Fano's approach with B compressed. Succinct representation of binary
+  trees and its navigational operations (heap like notation).
+
+  8. **Dictionary Search**: Exact search: hashing with chaining, univeral
+  hashing, cuckoo hashing. Prefix search: compacted trie, front coding, 2-level
+  indexing. Edit distance via brute-force approach, or Dynamic Programming
+  (possibly weighted). Overlap measure with k-gram index. Edit distance with
+  k-gram index. One-error match. Wild-card queries (permuterm, k-gram). Phonetic
+  match. Context-sensitive match.
+
+  9. **Query Resolver**: Query processing: skip pointers (with solution based on
+  dynamic programming), caching, phrase queries. Zone index and tiered index.
+  The auto-complete problem and its solutions for the top-1, top-2, ..., top-k
+  strings.
+
+  10. **Text Ranking**: Text-based ranking: dice, jaccard, tf-idf. Vector space
+  model. Storage of tf-idf and use for computing document-query similarity. Fast
+  top-k retrieval: high idf, champion lists, many query-terms, fancy hits,
+  clustering. Exact Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio,
+  pseudo-relevance feedback, query expansion. Performance measures: precision,
+  recall, F1 and user happiness.
+
+  11. **Web Ranking**: Random Walks. Link-based ranking: pagerank, topic-based
+  pagerank, personalized pagerank, CoSim rank.
+
   12. **Applications**: HITS. Recommendation systems and Web advertising.
-  13. **Projections**: Projections to smaller spaces: Latent Semantic Indexing (LSI). Random Projections: Johnson-Linderstauss Lemma and its applications.
-  14. **Topic Annotator**: Semantic-annotation tools: basics, Wikipedia structure, TAGME and other annotators. How to evaluate those systems.
+
+  13. **Projections**: Projections to smaller spaces: Latent Semantic Indexing
+  (LSI). Random Projections: Johnson-Linderstauss Lemma and its applications.
+
+  14. **Topic Annotator**: Semantic-annotation tools: basics, Wikipedia
+  structure, TAGME and other annotators. How to evaluate those systems.
+
   15. **Lucene**: Introduction to Lucene.
 
 ## Topics-by-date Table ##
 
-In this table is shown which kind of exercises you may find in a specific test exam (denoted by the date in which it was taken). The numbers describe the topics as in the previous section.
+In this table is shown which kind of exercises you may find in a specific test
+exam (denoted by the date in which it was taken). The numbers describe the
+topics as in the previous section.
 
-***WARNING***: The following table is just a stub. Many exercises may be misclassified.
+***WARNING***: The following table is just a stub. Many exercises may be
+misclassified.
 
-***WARNING***: Every exam taken before 2016 may contain exercises form a previous programme.
+***WARNING***: Every exam taken before 2016 may contain exercises form a
+previous programme.
 
 | Test Date                                                                                                  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10| 11| 12| 13| 14| 15| Status                                                     |
 |:----------------------------------------------------------------------------------------------------------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:----------------------------------------------------------:|
@@ -71,3 +120,31 @@ In this table is shown which kind of exercises you may find in a specific test e
 | [24/06/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110624.doc)       |   |   |   |   |   |   | ● | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)|
 | [21/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110221.doc)       |   |   |   |   |   |   |   | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)|
 | [01/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110201.doc)       |   | ● |   |   |   |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)|
+
+## Solutions File ##
+
+For the latest PDF file, see the [releases
+page](https://github.com/flandolfi/IR-exercises/releases).
+
+You can otherwise build it yourself, using the following commands:
+
+    $ git clone https://github.com/flandolfi/IR-exercises.git
+    $ cd IR-exercises/
+    $ make
+
+## How to contribute ##
+
+Any kind of contribution is welcome! If you wish to add a missing solution,
+follow these instructions:
+
+  1. Fork this repository;
+  2. Create a .tex file containing:
+    - The text of the problem, preceded by the LaTeX macro `\exercise`;
+    - The solution of the problem, preceded by the LaTeX macro `\solution`.
+  3. Place the file in the specific folder for the subject of the exercise you
+  have solved;
+  4. Append your name in the `\author{}` field in the IR-exercise.tex file,
+  preceded by `\and`;
+  5. Submit a pull request!
+
+Thank you for your contribution! :blush:
