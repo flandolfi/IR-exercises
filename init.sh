@@ -20,11 +20,10 @@ TOPICS=(
   [15_lucene]="Lucene"
 )
 
-OUT=""
+OUT="% --------------- DO NOT EDIT --------------- %\n% This file has been automatically generated. %\n\n"
 
 for t in $(echo "${!TOPICS[@]}" | tr " " "\n" | sort); do
-  cd $t
-  FILES=$(ls | grep \.tex$)
+  FILES=$(ls $t | grep \.tex$)
 
   if [ "$FILES" != "" ]; then
     OUT="$OUT\\section{${TOPICS[$t]}}\n"
@@ -33,9 +32,6 @@ for t in $(echo "${!TOPICS[@]}" | tr " " "\n" | sort); do
       OUT="$OUT\\input{$t/$f}\n"
     done
   fi
-
-  cd ..
 done
 
-echo -e $OUT > glob.tex
-echo "All .tex files have been globbed into glob.tex!"
+echo -e $OUT > all.tex

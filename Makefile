@@ -14,11 +14,11 @@ ${OBJ}: ${SRC} init
 	${CMD} ${OPTS} ${SRC}
 
 init: ${OUT_DIR}
-	./globber.sh
+	./init.sh
 
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
 
 clean:
 	rm -rf ${OUT_DIR}
-	rm glob.tex
+	-rm all.tex
