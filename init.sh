@@ -34,4 +34,4 @@ for t in $(echo "${!TOPICS[@]}" | tr " " "\n" | sort); do
   fi
 done
 
-echo -e $OUT > all.tex
+echo -e $OUT
