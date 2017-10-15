@@ -14,8 +14,13 @@ This folder contains *only* exercises on crawlers and other relevant topics.
 | [29/06/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150629.docx)      |     3    |  3 + 3 | Consistent Hashing | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [08/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140108.docx)      |     5    |    3   | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [08/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140108.docx)      |     6    |  3 + 4 | Consistent Hashing | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [10/01/13](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir12/ir130110.docx)      |     3    |    4   | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [03/09/12](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir11/ir120903.doc)       |     1    |  4 + 3 | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [23/07/12](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir11/ir120723.doc)       |     2    |    5   | Consistent Hashing | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [11/01/12](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir11/ir120111.doc)       |     2    |  5 + 4 | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [01/09/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110901.doc)       |     1    |    5   | Consistent Hashing | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [24/06/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110624.doc)       |     4    |    5   | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [21/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110221.doc)       |     1    |    8   | Bloom Filters      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [01/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110201.doc)       |     3    |    8   | Consistent Hashing | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 
 ## How to contribute ##
