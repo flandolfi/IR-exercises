@@ -55,7 +55,7 @@ Like the course, the various solutions will be divided into the following topics
   structure, TAGME and other annotators. How to evaluate those systems.
   15. **Lucene**: Introduction to Lucene.
 
-## Topics-by-date table ##
+## Topics covered by the exams ##
 
 In this table is shown which kind of exercises you may find in a specific test
 exam (denoted by the date in which it was taken). The numbers describe the
