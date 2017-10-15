@@ -55,7 +55,7 @@ Like the course, the various solutions will be divided into the following topics
   structure, TAGME and other annotators. How to evaluate those systems.
   15. **Lucene**: Introduction to Lucene.
 
-## Topics-by-date Table ##
+## Topics-by-date table ##
 
 In this table is shown which kind of exercises you may find in a specific test
 exam (denoted by the date in which it was taken). The numbers describe the
@@ -107,7 +107,7 @@ previous programme.
 | [21/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110221.doc)       |   | ● |   |   |   |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)|
 | [01/02/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110201.doc)       |   | ● |   |   |   |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)|
 
-## Solutions File ##
+## Solutions file ##
 
 For the latest PDF file, see the [releases
 page](https://github.com/flandolfi/IR-exercises/releases).
