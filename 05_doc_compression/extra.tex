@@ -1,0 +1,22 @@
+\exercise
+
+Compress using zdelta the string $s = "\text{\tt abitacolo}"$ given $t =
+"\text{\tt abaco}"$.
+
+\solution
+
+The compression produces the following tuples:
+%
+\begin{table}[h]
+  \centering
+  \begin{tabular}{r|lcl}
+  \colorbox{pink}{\tt a b} {\tt  a c o} & \colorbox{yellow}{\tt a b i} {\tt t a
+  c o l o \$} & & $\langle 5, 2, \text{\tt i} \rangle$ \\
+  {\tt a b a c o} & {\tt a b i} \colorbox{yellow}{\tt t} {\tt a
+  c o l o \$} & & $\langle 0, 0, \text{\tt t} \rangle$ \\
+  {\tt a b} \colorbox{pink}{\tt a c o} & {\tt a b i t} \colorbox{yellow}{\tt a
+  c o l} {\tt o \$} & & $\langle 7, 3, \text{\tt l} \rangle$ \\
+  {\tt a b a c o} & {\tt a b i t a c} \colorbox{pink}{\tt o} {\tt l}
+  \colorbox{yellow}{\tt o \$} & & $\langle 2, 1, \text{\tt \$} \rangle$ \\
+  \end{tabular}
+\end{table}

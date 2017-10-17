@@ -1,0 +1,23 @@
+\exercise
+
+Assume that you have 7 items (6, 1, 3, 7, 2, 4, 9) and three servers whose IDs
+are (1, 2, 3), and you want to distribute those items among the three servers
+via consistent hashing. How would you do? What if a new server with ID 11 goes
+up? \emph{(Hint: Instead of working on ring $[0,1]$, work on the integers in
+$\{0,1, ... ,10\}$ using a universal hash function $h_a(x)= a*x \bmod m)$}
+
+\solution
+
+Given $a = 3$ we obtain that $h_3(1) = 3$, $h_3(2) = 6$, $h_3(3) = 9$. The items will be distributed as in the following table:
+%
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|c|c|c|c|c|c|c}
+    item & 6 & 1 & 3 & 7 & 2 & 4 & 9 \\
+    $h_3(\text{item})$ & 7 & 3 & 9 & 10 & 6 & 1 & 5 \\ \hline
+    server ID & 3 & 1 & 3 & 1 & 2 & 1 & 2 \\
+  \end{tabular}
+\end{table}
+
+If a new server with ID = 11 (and $h_3(11) = 0$) goes up, the item 7 will be
+reassigned to that server.
