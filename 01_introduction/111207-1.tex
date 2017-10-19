@@ -1,0 +1,27 @@
+\exercise
+
+Given the inverted lists of two terms t1 and t2, write the pseudo-code of the
+algorithm that implements t1 AND (NOT t2). Discuss and compute its time
+complexity as a function of the lengths of the two posting lists.  \emph{(Hint:
+do not create explicitly (NOT t2))}
+
+\solution
+
+% \begin{algorithmic}
+% \Procedure{andNot($p_1$, $p_2$)}
+% \State $res \gets \emptyset$
+% \While{$p_1 \neq null$}
+% \If{$p_2 = null$}
+% \State $res.\text{\scshape appendAll}(p_1)$
+% \ElsIf{$p_1.\text{ID} < p_2.\text{ID}$}
+% \State $res.\text{\scshape append}(p_1.ID)$
+% \State $p_1 \gets p_1.\text{\scshape next}$
+% \ElsIf{$p_1.\text{ID} = p_2.\text{ID}$}
+% \State $p_1 \gets p_1.\text{\scshape next}$
+% \State $p_2 \gets p_2.\text{\scshape next}$
+% \Else
+% \State $p_2 \gets p_2.\text{\scshape next}$
+% \EndIf
+% \EndWhile
+% \Return $res$
+% \end{algorithmic}

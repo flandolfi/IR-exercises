@@ -1,0 +1,31 @@
+\exercise
+
+Show how to synchronize via rsync the new file $f_{old} = \text{\tt
+“bacaddabbb”}$ (on the server) using the old file $f_{new} = \text{\tt
+“acabbbdab”}$ (on the client) and blocks of size 3 chars.
+
+\solution
+
+The client starts computing the hashes of $f_{old}$ divided by blocks
+of 3 chars:
+%
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \tt{b a c} & \tt{a d d} & \tt{a b b} & \tt{b \$}\\
+    $H_1$ & $H_2$ & $H_3$ & $H_4$ \\
+  \end{tabular}
+\end{table}
+%
+The client sends the hashcodes to the server, which compares them to the ones
+produced by the rolling hash on $f_{new}$:
+%
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \tt{a c} & \tt{a b b} & \tt{b d a} & \tt{b} \\
+    ? & $H_3$ & ? & $H_4$ \\
+  \end{tabular}
+\end{table}
+%
+The server then sends: "{\tt a c}", $H_3$, "{\tt b d a}", $H_4$.
