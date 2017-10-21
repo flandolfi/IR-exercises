@@ -1,31 +1,18 @@
 \exercise
 
-Show how to synchronize via rsync the new file $f_{old} = \text{\tt
-“bacaddabbb”}$ (on the server) using the old file $f_{new} = \text{\tt
-“acabbbdab”}$ (on the client) and blocks of size 3 chars.
+Given the two strings S1=baaa and S2=baacac use Z-Delta to compress $S_2$ with
+respect to $S_1$.
 
 \solution
 
-The client starts computing the hashes of $f_{old}$ divided by blocks
-of 3 chars:
+The compression produces the following tuples:
 %
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|c|c|c|}
-    \tt{b a c} & \tt{a d d} & \tt{a b b} & \tt{b \$}\\
-    $H_1$ & $H_2$ & $H_3$ & $H_4$ \\
+  \begin{tabular}{r|lcl}
+  \colorbox{pink}{\tt b a a} {\tt a} & \colorbox{yellow}{\tt b a a c}
+  {\tt a c \$} & & $\langle 4, 3, \text{\tt c} \rangle$ \\
+  {\tt b a a a} & {\tt b a} \colorbox{pink}{\tt a c}
+  \colorbox{yellow}{\tt a c \$} & & $\langle 2, 2, \text{\tt \$} \rangle$ \\
   \end{tabular}
 \end{table}
-%
-The client sends the hashcodes to the server, which compares them to the ones
-produced by the rolling hash on $f_{new}$:
-%
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \tt{a c} & \tt{a b b} & \tt{b d a} & \tt{b \$} \\
-    ? & $H_3$ & ? & $H_4$ \\
-  \end{tabular}
-\end{table}
-%
-The server then sends: "{\tt a c}", $H_3$, "{\tt b d a}", $H_4$.
