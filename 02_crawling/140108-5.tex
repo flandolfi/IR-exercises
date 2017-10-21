@@ -1,0 +1,21 @@
+\exercise
+
+Compute the probability of error for a Bloom Filter that uses a bit-array of $m$
+bits, $k$ hash functions and indexes a dictionary of $n$ strings.
+
+\solution
+
+The probability that a bit remains 0 after $n$ insertions is
+%
+\begin{align*}
+  \mathbb{P}[\mathbf{b}_i^{(n)} = 0] = \left( 1 - \frac{1}{m} \right)^{kn}
+  \approx \exp^{-\frac{kn}{m}}
+\end{align*}
+%
+Then, the probability of a false positive for a given vector $\mathbf{v}$ is:
+%
+\begin{align*}
+  \mathbb{P}[\mathbf{b}_{h_1(\mathbf{v})}^{(n)} = 1 \wedge \dots \wedge
+  \mathbf{b}_{h_k(\mathbf{v})}^{(n)} = 1] &= \left(1 - \left( 1 - \frac{1}{m}
+  \right)^{kn} \right)^k \\ &\approx \left(1 - \exp^{-\frac{kn}{m}} \right)^k
+\end{align*}
