@@ -7,7 +7,7 @@ This folder contains *only* exercises regarding the introductory part (mostly in
 | Test Date                                                                                                  | Exercise | Points | Topic            | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:------:|:----------------:|:----------------------------------------------------------------------------------:|
 | [16/01/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150116.docx)      |     3    |    3   | Inverted lists   | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
-| [07/12/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir11/ir111207.doc)       |     1    |  4 + 4 | Inverted lists   | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [07/12/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir11/ir111207.doc)       |     1    |  4 + 4 | Inverted lists   | ![Status](https://img.shields.io/badge/Status-To%20be%20reviewed-yellow.svg)       |
 | [01/09/11](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir10/ir110901.doc)       |     6    |    7   | Inverted lists   | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 
 ## How to contribute ##
