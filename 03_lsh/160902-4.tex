@@ -1,0 +1,163 @@
+\exercise
+
+Given a set of binary vectors,
+
+\begin{enumerate}
+
+  \item describe how it is computed an LSH-fingerprint of a binary vector
+  \textbf{v} to fast to approximate the Hamming distance between vector-pairs
+  with high probability \emph{(Hint: state clearly the parameters involved in
+  the setting)};
+
+  \item state and prove how the Hamming distance between two vectors \textbf{v}
+  and \textbf{w} is related to the probability of declaring a “match” between
+  LSH-fingerprints of \textbf{v} and \textbf{w}, according to the various
+  parameters involved;
+
+  \item apply your description on the set of vectors $V = \{00000, 00100,
+  01010\}$, and use it to estimate Hamming(00000, 01010) and Hamming(00000,
+  00100).
+
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+
+  \item We compute a sketch of all the vectors of the set via LSH: for each
+  vector we take $L$ $k$-projections $h_1$, $h_2$, \dots, $h_L$ and generate
+  %
+  \begin{align*}
+    g(\textbf{u}) = \langle h_1(\textbf{u}), h_2(\textbf{u}), \dots,
+    h_L(\textbf{u}) \rangle
+  \end{align*}
+  %
+  We know that, for every $i = 1, \dots, L$ and for every $\mathbf{v, w} \in V$
+  it holds that
+  %
+  \begin{align}\label{eq:lsh-p1}
+    \mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})] =
+    \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k
+  \end{align}
+  %
+  where $n = |\textbf{v}| = |\textbf{w}|$ and $d_H(\textbf{v}, \textbf{w})$ is
+  the Hamming distance between $\textbf{v}$ and $\textbf{w}$. We can make an
+  empirical estimation of the previous probability with
+  %
+  \begin{align}\label{eq:lsh-p2}
+    \mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})] \approx
+    1 - \frac{d_H(g(\textbf{v}), g(\textbf{w}))}{L}.
+  \end{align}
+  %
+  We can then combine \autoref{eq:lsh-p1} and \ref{eq:lsh-p2} and get the
+  Hamming distance:
+  %
+  \begin{align*}
+    d_H(\textbf{v}, \textbf{w}) &= n \cdot \left( 1 -
+    \sqrt[k]{\mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})]}\right) \\
+    &\approx n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\textbf{v}),
+    g(\textbf{w}))}{L}}\right)
+  \end{align*}
+
+  \item Two fingerprints match ($g(\textbf{v}) \simeq g(\textbf{w})$) if they share at least a component in the same position, and the relation between the probability of a match and the Hamming distance is
+  %
+  \begin{align*}
+    \mathbb{P}[g(\textbf{v}) \simeq g(\textbf{w})] = 1 - \left( 1 - \left( 1 -
+    \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k \right)^L
+  \end{align*}
+
+  \paragraph{Proof} The probability that, given two vectors $\textbf{v}$ and
+  $\textbf{w}$, they share the same bit at the same index $i$ is
+  %
+  \begin{align*}
+    \mathbb{P}[\textbf{v}_i = \textbf{w}_i] = 1 - \frac{d_H(\textbf{v},
+    \textbf{w})}{n}.
+  \end{align*}
+  %
+  The probability that the same two vectors share $k$ positions is
+  %
+  \begin{align*}
+    \mathbb{P}[\textbf{v}_{i_1} = \textbf{w}_{i_1} \wedge \dots \wedge
+    \textbf{v}_{i_k} = \textbf{w}_{i_k}]
+    &= \mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})] \\
+    &= \left( \mathbb{P}[\textbf{v}_i = \textbf{w}_i] \right)^k \\
+    &= \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k.
+  \end{align*}
+  %
+  The probability that at least 1 bit is different is
+  %
+  \begin{align*}
+    \mathbb{P}[\textbf{v}_{i_1} \neq \textbf{w}_{i_1} \vee \dots \vee
+    \textbf{v}_{i_k} \neq \textbf{w}_{i_k}]
+    &= \mathbb{P}[h_i(\textbf{v}) \neq h_i(\textbf{w})] \\
+    &= 1 - \mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})] \\
+    &= 1 - \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k.
+  \end{align*}
+  %
+  The porbability that this happens for all $L$ projections is
+  %
+  \begin{align*}
+    &\mathbb{P}[h_1(\textbf{v}) \neq h_1(\textbf{w}) \wedge \dots \wedge
+    h_L(\textbf{v}) \neq h_L(\textbf{w})] \\ = &\left(
+    \mathbb{P}[h_i(\textbf{v}) \neq h_i(\textbf{w})] \right)^L \\ = &\left( 1 -
+    \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k \right)^L.
+  \end{align*}
+  %
+  Finally, the probability that at least a projection is shared is
+  %
+  \begin{align*}
+    \mathbb{P}[g(\textbf{v}) \simeq g(\textbf{w})] &=
+    \mathbb{P}[h_1(\textbf{v}) = h_1(\textbf{w}) \vee \dots \vee
+    h_L(\textbf{v}) = h_L(\textbf{w})] \\ &= 1 -\mathbb{P}[h_1(\textbf{v}) \neq
+    h_1(\textbf{w}) \wedge \dots \wedge h_L(\textbf{v}) \neq h_L(\textbf{w})] \\
+    &= 1 - \left(\mathbb{P}[h_i(\textbf{v}) \neq h_i(\textbf{w})] \right)^L \\
+    &= 1 - \left( 1 -\left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k
+    \right)^L.
+  \end{align*}
+
+  \item Given $V = \{00000, 00100, 01010\}$, we use LSH with parameters $L = 2$
+  and $k = 2$. We choose the projections $I_1 = \{ 1, 3 \}$, $I_2 = \{ 4, 5
+  \}$ and $I_3 = \{2, 4 \}$ and we obtain the following sketches:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|}
+      & $I_1$ & $I_2$ & $I_3$ \\ \hline
+      $\mathbf{v_1}$ & 00 & 00 & 00\\ \hline
+      $\mathbf{v_2}$ & 01 & 00 & 00\\ \hline
+      $\mathbf{v_3}$ & 00 & 10 & 11\\ \hline
+    \end{tabular}
+  \end{table}
+  %
+  Then, we compute the Hamming distances between the sketches:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|}
+      & $g(\mathbf{v_1})$ & $g(\mathbf{v_2})$ & $g(\mathbf{v_3})$ \\ \hline
+      $g(\mathbf{v_1})$ & 0 & 1 & 2 \\ \hline
+      $g(\mathbf{v_2})$ & 1 & 0 & 3 \\ \hline
+      $g(\mathbf{v_3})$ & 2 & 3 & 0 \\ \hline
+    \end{tabular}
+  \end{table}
+  %
+  We can now estimate the Hamming distances between the original vectors:
+  %
+  \begin{align*}
+    d_H(\mathbf{v}_1, \mathbf{v}_2) &\approx
+    n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_1),
+    g(\mathbf{v}_2)}{L}} \right) \\
+    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{1}{3}} \right) \approx 0.63
+    \approx 1 \\
+    d_H(\mathbf{v}_1, \mathbf{v}_3) &\approx
+    n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_1),
+    g(\mathbf{v}_3)}{L}} \right) \\
+    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{2}{3}} \right) \approx 1.53
+    \approx 2 \\
+    d_H(\mathbf{v}_2, \mathbf{v}_3) &\approx
+    n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_2),
+    g(\mathbf{v}_3)}{L}} \right) \\
+    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{3}{3}} \right) = 5\ (\neq 3)\\
+  \end{align*}
+
+\end{enumerate}
