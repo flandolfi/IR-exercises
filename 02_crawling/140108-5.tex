@@ -5,11 +5,13 @@ bits, $k$ hash functions and indexes a dictionary of $n$ strings.
 
 \solution
 
-The probability that a bit remains 0 after $n$ insertions is
+The probability that a bit in the array $\mathbf{b}$ is 1 after $n$ insertions
+is
 %
 \begin{align*}
-  \mathbb{P}[\mathbf{b}_i^{(n)} = 0] = \left( 1 - \frac{1}{m} \right)^{kn}
-  \approx \exp^{-\frac{kn}{m}}
+  \mathbb{P}[\mathbf{b}_i^{(n)} = 1] &= 1 - \mathbb{P}[\mathbf{b}_i^{(n)} = 0]\\
+  &= 1 - \left( 1 - \frac{1}{m} \right)^{kn} \\
+  &\approx 1 - \exp^{-\frac{kn}{m}}
 \end{align*}
 %
 Then, the probability of a false positive for a given vector $\mathbf{v}$ is:
