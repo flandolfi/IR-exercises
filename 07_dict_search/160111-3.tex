@@ -1,0 +1,94 @@
+\exercise
+
+Given the dictionary $D = \{\texttt{bingo}, \texttt{bins}, \texttt{box},
+\texttt{bull}, \texttt{cat}\}$
+%
+\begin{itemize}
+
+  \item construct a 3-gram index for $D$ (by guaranteeing $L$ 3-grams per
+  $L$-long strings);
+
+  \item describe the algorithm that searches for the strings in $D$ which are at
+  1-edit distance from $P = \texttt{binno}$.
+
+\end{itemize}
+
+\solution
+
+We construct the 3-gram index for $D$:
+%
+% \begin{table}[H]
+%   \centering
+  \begin{longtable}{ccl}
+    \texttt{\$\$b} & $\rightarrow$ & \texttt{bingo}, \texttt{bins},
+    \texttt{box}, \texttt{bull} \\
+    \texttt{\$\$c} & $\rightarrow$ & \texttt{cat} \\
+    \texttt{\$bi} & $\rightarrow$ & \texttt{bingo}, \texttt{bins} \\
+    \texttt{\$bo} & $\rightarrow$ & \texttt{box} \\
+    \texttt{\$bu} & $\rightarrow$ & \texttt{bull} \\
+    \texttt{\$ca} & $\rightarrow$ & \texttt{cat} \\
+    \texttt{bin} & $\rightarrow$ & \texttt{bingo}, \texttt{bins} \\
+    \texttt{box} & $\rightarrow$ & \texttt{box} \\
+    \texttt{bul} & $\rightarrow$ & \texttt{bull} \\
+    \texttt{cat} & $\rightarrow$ & \texttt{cat} \\
+    \texttt{ing} & $\rightarrow$ & \texttt{bingo} \\
+    \texttt{ins} & $\rightarrow$ & \texttt{bins} \\
+    \texttt{ngo} & $\rightarrow$ & \texttt{bingo} \\
+    \texttt{ull} & $\rightarrow$ & \texttt{bull} \\
+    \texttt{BIS\$} & $\rightarrow$ & \texttt{BIS} \\
+    \texttt{IS\$B} & $\rightarrow$ & \texttt{BIS} \\
+    \texttt{OS\$P} & $\rightarrow$ & \texttt{POS} \\
+    \texttt{POS\$} & $\rightarrow$ & \texttt{POS} \\
+    \texttt{S\$BI} & $\rightarrow$ & \texttt{BIS} \\
+    \texttt{S\$PO} & $\rightarrow$ & \texttt{POS} \\
+  \end{longtable}
+% \end{table}
+%
+Then we contruct the 3-grams of the query $P = \texttt{binno}$ and we use them
+as a key for the search in the previous index:
+%
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccl}
+    \texttt{\$\$b} & $\rightarrow$ & \texttt{bingo}, \texttt{bins},
+    \texttt{box}, \texttt{bull} \\
+    \texttt{\$bi} & $\rightarrow$ & \texttt{bingo}, \texttt{bins} \\
+    \texttt{bin} & $\rightarrow$ & \texttt{bingo}, \texttt{bins} \\
+    \texttt{inn} & $\rightarrow$ & $\emptyset$ \\
+    \texttt{nno} & $\rightarrow$ & $\emptyset$ \\
+  \end{tabular}
+\end{table}
+%
+Since the requested edit distance is $E = 1$, we know that the minimum number of
+occurrence of a word in our query must be $|P| - E \cdot k = 5 - 1 \cdot 3 = 2$
+to be accepted. We can see that the words \texttt{bingo} and \texttt{bins}
+satisfy this condition, while all the other words will be filtered. Since the
+results may be a false positive, we check the real edit distance via dynamic
+programming, which will produce the following results:
+%
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c|c|c|c|c|}
+            &   & {\tt b} & {\tt i} & {\tt n} & {\tt n} & {\tt o} \\ \hline
+            & 0 &    1    &    2    &    3    &    4    &    5 \\ \hline
+    {\tt b} & 1 &    0    &    1    &    2    &    3    &    4 \\ \hline
+    {\tt i} & 2 &    1    &    0    &    1    &    2    &    3 \\ \hline
+    {\tt n} & 3 &    2    &    1    &    0    &    1    &    2 \\ \hline
+    {\tt g} & 4 &    3    &    2    &    1    &    1    &    1 \\ \hline
+    {\tt o} & 5 &    4    &    3    &    2    &    2    & \colorbox{lime}{1} \\
+    \hline
+  \end{tabular}
+  \quad\quad
+  \begin{tabular}{c|c|c|c|c|c|c|}
+            &   & {\tt b} & {\tt i} & {\tt n} & {\tt n} & {\tt o} \\ \hline
+            & 0 &    1    &    2    &    3    &    4    &    5 \\ \hline
+    {\tt b} & 1 &    0    &    1    &    2    &    3    &    4 \\ \hline
+    {\tt i} & 2 &    1    &    0    &    1    &    2    &    3 \\ \hline
+    {\tt n} & 3 &    2    &    1    &    0    &    1    &    2 \\ \hline
+    {\tt s} & 4 &    3    &    2    &    1    &    1    & \colorbox{pink}{2} \\
+    \hline
+  \end{tabular}
+\end{table}
+%
+So, the word \texttt{bingo} is accepted, since it has edit distance 1, while
+\texttt{bins} is rejected, since it has edit distance 2.

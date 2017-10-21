@@ -1,0 +1,91 @@
+\exercise
+
+You are given the two files: $f_{old} = \mathtt{"cane gatto orso"}$, $f_{new} =
+\mathtt{"cane matto dorso"}$, and assume a block size $B = 3$ chars.
+%
+\begin{itemize}
+
+  \item Show the execution of the algorithm rsync.
+  \emph{(comment the various steps)}
+
+  \item Show the execution of the algorithm zsync.
+  \emph{(comment the various steps)}
+
+\end{itemize}
+
+\solution
+
+\begin{description}
+
+  \item[rsync] Client starts computing the hashes of $f_{old}$ divided by blocks
+  of 3 chars:
+  %
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+      \tt{c a n} & \tt{e \_ g} & \tt{a t t} & \tt{o \_ o} & \tt{r s o} \\
+      $H_1$ & $H_2$ & $H_3$ & $H_4$ & $H_5$ \\
+    \end{tabular}
+  \end{table}
+  %
+  The client sends the hashcodes to the server, which compares them to the ones
+  produced by the rolling hash on $f_{new}$:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+      \tt{c a n} & \tt{e \_ m} & \tt{a t t} & \tt{o \_ d o} & \tt{r s o} \\
+      $H_1$ & ? & $H_3$ & ? & $H_5$ \\
+    \end{tabular}
+  \end{table}
+  %
+  The server then sends: $H_1$, "\texttt{e g}", $H_3$, "\texttt{o do}", $H_5$.
+
+  \item[zsync] Server starts computing the hashes of $f_{new}$ divided block by
+  block:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \tt{c a n} & \tt{e \_ m} & \tt{a t t} & \tt{o \_ d} & \tt{o r s} &
+      \tt{o \$} \\
+      $H_1$ & $H_2$ & $H_3$ & $H_4$ & $H_5$ & $H_6$ \\
+    \end{tabular}
+  \end{table}
+  %
+  The server sends the hashcodes to the client, which compares them to the ones
+  produced by the rolling hash on $f_{old}$:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+      \tt{c a n} & \tt{e \_ g} & \tt{a t t} & \tt{o \_} & \tt{o r s} &
+      \tt{o \$} \\
+      $H_1$ & ? & $H_3$ & ? & $H_5$ & $H_6$ \\
+    \end{tabular}
+  \end{table}
+  %
+  Then client sends the vector: 101011. The server then computes the \emph{gzip}
+  of the unmatched substrings given the matched ones:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{r|lcl}
+    \tt{c a n a t t o r s o \$} & \colorbox{yellow}{\tt e}
+    {\tt \_ m o \_ d \$} & &
+    $\langle 0, 0, \text{\tt e} \rangle$ \\
+    \tt{c a n a t t o r s o \$} & {\tt e} \colorbox{yellow}{\tt \_}
+    {\tt m o \_ d \$} & & $\langle 0, 0, \text{\tt \_} \rangle$ \\
+    \tt{c a n a t t o r s o \$} & {\tt e \_} \colorbox{yellow}{\tt m}
+    {\tt o \_ d \$} & & $\langle 0, 0, \text{\tt m} \rangle$ \\
+    \tt{c a n a t t o r s} \colorbox{pink}{o}{\tt \$}& {\tt e \_ m}
+    \colorbox{yellow}{\tt o \_} {\tt d \$} & &
+    $\langle 5, 1, \text{\tt \_} \rangle$ \\
+    \tt{c a n a t t o r s o \$} & {\tt e \_ m o \_} \colorbox{yellow}{\tt d}
+    {\tt \$} & & $\langle 0, 0, \text{\tt d} \rangle$ \\
+    \tt{c a n a t t o r s o \$} & {\tt e \_ m o \_ d} \colorbox{yellow}{\tt \$}
+    & & $\langle 0, 0, \text{\tt \$} \rangle$ \\
+    \end{tabular}
+  \end{table}
+
+\end{description}
