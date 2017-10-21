@@ -18,15 +18,15 @@ Given a dictionary of $2^{16}$ strings,
 
 The optimal number of hash functions is given by
 %
-\begin{align}
+\begin{align*}
   k = \frac{m}{n}\ln 2 = 2^4 \ln 2
-\end{align}
+\end{align*}
 %
 while the error rate is given by
 %
-\begin{align}
+\begin{align*}
   \varepsilon = \left( 1 - e^{-\frac{kn}{m}}\right)^k \approx 0.618^{16}.
-\end{align}
+\end{align*}
 
 Regarding the second point, if we use an hash table then, only for the
 initialization (\emph{without inserting any string in the dictionary}), for each
