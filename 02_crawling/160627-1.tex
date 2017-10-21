@@ -1,0 +1,35 @@
+\exercise
+
+Consider the Consistent Hashing technique,
+
+\begin{enumerate}
+
+  \item simulate its execution over the $id_{url} = \{ 1, 2, 4, 6, 7, 8, 11,
+  13 \}$ and the $id_{crawler} = \{ 2, 4, 7 \}$, by defining the hash function
+  $h_3(x) = 3x \bmod 11$;
+
+  \item Show what happens if the $id_{crawler}$ 2 faults.
+
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+
+  \item First, w compute the hashes of the $id_{crawler}$ and we obtain that
+  $h_3(2) = 6$, $h_3(4) = 1$, $h_3(7) = 10$. The items will be distributed as in
+  the following table:
+  %
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{l|c|c|c|c|c|c|c|c}
+      $id_{url}$      & 1 & 2 & 4 & 6 & 7 & 8 & 11 & 13 \\
+      $h_3(id_{url})$ & 3 & 6 & 1 & 7 & 10 & 2 & 0 & 6 \\ \hline
+      $id_{crawler}$  & 4 & 2 & 4 & 2 & 7 & 4 & 7 & 2 \\
+    \end{tabular}
+  \end{table}
+
+  \item If the crawler with $id_{crawler}$ 2 faults, the items with $id_{url}$
+  2, 6, and 13 will be reassigned to $id_{crawler}$ 7.
+
+\end{enumerate}
