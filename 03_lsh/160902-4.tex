@@ -59,7 +59,9 @@ Given a set of binary vectors,
     g(\textbf{w}))}{L}}\right)
   \end{align*}
 
-  \item Two fingerprints match ($g(\textbf{v}) \simeq g(\textbf{w})$) if they share at least a component in the same position, and the relation between the probability of a match and the Hamming distance is
+  \item Two fingerprints match ($g(\textbf{v}) \simeq g(\textbf{w})$) if they
+  share at least a component in the same position, and the relation between the
+  probability of a match and the Hamming distance is
   %
   \begin{align*}
     \mathbb{P}[g(\textbf{v}) \simeq g(\textbf{w})] = 1 - \left( 1 - \left( 1 -
@@ -67,10 +69,10 @@ Given a set of binary vectors,
   \end{align*}
 
   \paragraph{Proof} The probability that, given two vectors $\textbf{v}$ and
-  $\textbf{w}$, they share the same bit at the same index $i$ is
+  $\textbf{w}$, they share the same bit at the same index $j$ is
   %
   \begin{align*}
-    \mathbb{P}[\textbf{v}_i = \textbf{w}_i] = 1 - \frac{d_H(\textbf{v},
+    \mathbb{P}[\textbf{v}_j = \textbf{w}_j] = 1 - \frac{d_H(\textbf{v},
     \textbf{w})}{n}.
   \end{align*}
   %
@@ -80,7 +82,7 @@ Given a set of binary vectors,
     \mathbb{P}[\textbf{v}_{i_1} = \textbf{w}_{i_1} \wedge \dots \wedge
     \textbf{v}_{i_k} = \textbf{w}_{i_k}]
     &= \mathbb{P}[h_i(\textbf{v}) = h_i(\textbf{w})] \\
-    &= \left( \mathbb{P}[\textbf{v}_i = \textbf{w}_i] \right)^k \\
+    &= \left( \mathbb{P}[\textbf{v}_j = \textbf{w}_j] \right)^k \\
     &= \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k.
   \end{align*}
   %
@@ -94,7 +96,7 @@ Given a set of binary vectors,
     &= 1 - \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k.
   \end{align*}
   %
-  The porbability that this happens for all $L$ projections is
+  The porbability that this will happen for all $L$ projections is
   %
   \begin{align*}
     &\mathbb{P}[h_1(\textbf{v}) \neq h_1(\textbf{w}) \wedge \dots \wedge
@@ -116,8 +118,8 @@ Given a set of binary vectors,
   \end{align*}
 
   \item Given $V = \{00000, 00100, 01010\}$, we use LSH with parameters $L = 2$
-  and $k = 2$. We choose the projections $I_1 = \{ 1, 3 \}$, $I_2 = \{ 4, 5
-  \}$ and $I_3 = \{2, 4 \}$ and we obtain the following sketches:
+  and $k = 2$. We choose the projections $I_1 = \{ 0, 2 \}$, $I_2 = \{ 3, 4
+  \}$ and $I_3 = \{1, 3 \}$ and we obtain the following sketches:
   %
   \begin{table}[H]
     \centering
@@ -157,7 +159,7 @@ Given a set of binary vectors,
     d_H(\mathbf{v}_2, \mathbf{v}_3) &\approx
     n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_2),
     g(\mathbf{v}_3)}{L}} \right) \\
-    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{3}{3}} \right) = 5\ (\neq 3)\\
+    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{3}{3}} \right) = 5\ (\neq 3) \\
   \end{align*}
 
 \end{enumerate}
