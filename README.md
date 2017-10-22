@@ -8,29 +8,34 @@ Paolo Ferragina.
 
 Like the course, the various solutions will be divided into the following topics:
 
-  1. **Introduction**: Boolean retrieval model. Matrix document-term. Inverted
-  list: dictionary + postings. How to implement an AND, OR and NOT queries, and
-  their time complexities.
-  2. **Crawling**: Mercator, Bloom Filters, Consistent Hashing, Web graph.
-  3. **Locality-Sensitive Hashing**: K-means, Hamming distance, Locality
-  Sensitive Hashing (LSH).
-  4. **Index Construction**: The issue of hierarchical memories: I/O-model.
-  Index construction: multi-way mergesort, BSBI and SPIMI. Sketch on MapReduce.
-  Distributed indexing: Term-based vs Doc-based partitioning. Dynamic indexing:
-  two indexes, a cascade of indexes.
-  5. **Documents Compression**: Compressed storage of documents: LZ-based
-  compression. Storage and Transmission of single/group of file(s): Delta
-  compression (Zdelta), File Synchronization (rsync, zsync), and Set
-  Reconciliation.
-  6. **Parsing and Text Laws**: Parsing: tokenization, normalization,
-  lemmatization, stemming, thesauri. Statistical properties of texts: Zipf law:
-  classical and generalized, Heaps law, Luhn's consideration.
-  7. **Dictionary Search**: Exact search: hashing with chaining, univeral
-  hashing, cuckoo hashing. Prefix search: compacted trie, front coding, 2-level
-  indexing. Edit distance via brute-force approach, or Dynamic Programming
-  (possibly weighted). Overlap measure with k-gram index. Edit distance with
-  k-gram index. One-error match. Wild-card queries (permuterm, k-gram). Phonetic
-  match. Context-sensitive match.
+  1. [**Introduction**](https://github.com/flandolfi/IR-exercises/tree/master/01_introduction):
+  Boolean retrieval model. Matrix document-term. Inverted list: dictionary +
+  postings. How to implement an AND, OR and NOT queries, and their time
+  complexities.
+  2. [**Crawling**](https://github.com/flandolfi/IR-exercises/tree/master/02_crawling):
+  Mercator, Bloom Filters, Consistent Hashing, Web graph.
+  3. [**Locality-Sensitive Hashing**](https://github.com/flandolfi/IR-exercises/tree/master/03_lsh):
+  K-means, Hamming distance, Locality Sensitive Hashing (LSH).
+  4. [**Index Construction**](https://github.com/flandolfi/IR-exercises/tree/master/04_construction):
+  The issue of hierarchical memories: I/O-model. Index construction: multi-way
+  mergesort, BSBI and SPIMI. Sketch on MapReduce. Distributed indexing:
+  Term-based vs Doc-based partitioning. Dynamic indexing: two indexes, a
+  cascade of indexes.
+  5. [**Documents Compression**](https://github.com/flandolfi/IR-exercises/tree/master/05_doc_compression):
+  Compressed storage of documents: LZ-based compression. Storage and
+  Transmission of single/group of file(s): Delta compression (Zdelta), File
+  Synchronization (rsync, zsync), and Set Reconciliation.
+  6. [**Parsing and Text Laws**](https://github.com/flandolfi/IR-exercises/tree/master/06_parsing):
+  Parsing: tokenization, normalization, lemmatization, stemming, thesauri.
+  Statistical properties of texts: Zipf law: classical and generalized, Heaps
+  law, Luhn's consideration.
+  7. [**Dictionary Search**](https://github.com/flandolfi/IR-exercises/tree/master/07_dict_search):
+  Exact search: hashing with chaining, univeral hashing, cuckoo hashing. Prefix
+  search: compacted trie, front coding, 2-level indexing. Edit distance via
+  brute-force approach, or Dynamic Programming (possibly weighted). Overlap
+  measure with k-gram index. Edit distance with k-gram index. One-error match.
+  Wild-card queries (permuterm, k-gram). Phonetic match. Context-sensitive
+  match.
   8. **Postings Compression**: Posting list compression, codes: gamma, delta,
   variable bytes, PForDelta and Elias-Fano. Rank and Select data structures, two
   approaches: the case of B untouched and extra o(B) bits, and the case of
