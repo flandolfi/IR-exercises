@@ -7,19 +7,16 @@ and show how it is possible to search for \texttt{P*S} into it.
 
 First we compute the permuterm index:
 %
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ccc}
-    \texttt{\$BIS} & $\rightarrow$ & \texttt{BIS} \\
-    \texttt{\$POS} & $\rightarrow$ & \texttt{POS} \\
-    \texttt{BIS\$} & $\rightarrow$ & \texttt{BIS} \\
-    \texttt{IS\$B} & $\rightarrow$ & \texttt{BIS} \\
-    \texttt{OS\$P} & $\rightarrow$ & \texttt{POS} \\
-    \texttt{POS\$} & $\rightarrow$ & \texttt{POS} \\
-    \texttt{S\$BI} & $\rightarrow$ & \texttt{BIS} \\
-    \texttt{S\$PO} & $\rightarrow$ & \texttt{POS} \\
-  \end{tabular}
-\end{table}
+\begin{longtable}{ccc}
+  \texttt{\$BIS} & $\rightarrow$ & \texttt{BIS} \\
+  \texttt{\$POS} & $\rightarrow$ & \texttt{POS} \\
+  \texttt{BIS\$} & $\rightarrow$ & \texttt{BIS} \\
+  \texttt{IS\$B} & $\rightarrow$ & \texttt{BIS} \\
+  \texttt{OS\$P} & $\rightarrow$ & \texttt{POS} \\
+  \texttt{POS\$} & $\rightarrow$ & \texttt{POS} \\
+  \texttt{S\$BI} & $\rightarrow$ & \texttt{BIS} \\
+  \texttt{S\$PO} & $\rightarrow$ & \texttt{POS} \\
+\end{longtable}
 %
 Then we transform the query in \texttt{S\$P*}, which will produce the following
 result:
