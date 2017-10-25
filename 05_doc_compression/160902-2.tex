@@ -55,28 +55,28 @@ Given zdelta’s approach to compressing pairs of files,
   %
   \begin{figure}[H]
     \centering
-    \tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
-    \tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+    \tikzstyle{level 1}=[level distance=3cm, sibling distance=2cm]
+    \tikzstyle{level 2}=[level distance=3.5cm, sibling distance=1cm]
     \begin{tikzpicture}[grow=right, sloped]
     \node[draw=none,fill=none] {$\varepsilon$}
         child {
             node[draw=none,fill=none] {\tt abaco}
                 child {
                     node[draw=none,fill=none] {\tt baxco}
-                    edge from parent
+                    edge from parent[->]
                     node[above] {2}
                 }
                 child {
                     node[draw=none,fill=none] {\tt taco}
-                    edge from parent
+                    edge from parent[->]
                     node[above] {2}
                 }
                 child {
                     node[draw=none,fill=none] {\tt zaxo}
-                    edge from parent
+                    edge from parent[->]
                     node[above] {3}
                 }
-                edge from parent
+                edge from parent[->]
                 node[above] {5}
         };
     \end{tikzpicture}
