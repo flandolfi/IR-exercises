@@ -1,0 +1,86 @@
+\exercise
+
+Given the set $D =$ \{ \texttt{bingo}, \texttt{boss}, \texttt{bull},
+\texttt{bull}, \texttt{call} \}
+%
+\begin{enumerate}
+  \item build a 2-gram index over $D$;
+  \item describe the algorithm that solves 1-error queries over $D$ and test it
+  with $P_1 = \texttt{bang}$ and $P_2 = \texttt{bang}$;
+  \item check for 1-errors in the more sophisticated solution with $D_1$ and
+  $D_2$.
+\end{enumerate}
+
+\solution
+
+Prepend \texttt{\$} to each strings and build all the 2-grams:
+%
+\begin{longtable}{ccl}
+  \texttt{\$b} & $\rightarrow$ & \texttt{bingo}, \texttt{boss},
+  \texttt{box}, \texttt{bull} \\
+  \texttt{bi} & $\rightarrow$ & \texttt{bingo} \\
+  \texttt{in} & $\rightarrow$ & \texttt{bingo} \\
+  \texttt{ng} & $\rightarrow$ & \texttt{bingo} \\
+  \texttt{go} & $\rightarrow$ & \texttt{bingo} \\
+  \texttt{bo} & $\rightarrow$ & \texttt{box}, \texttt{boss} \\
+  \texttt{os} & $\rightarrow$ & \texttt{boss}\\
+  \texttt{ss} & $\rightarrow$ & \texttt{boss} \\
+  \texttt{ox} & $\rightarrow$ & \texttt{box} \\
+  \texttt{bu} & $\rightarrow$ & \texttt{bull} \\
+  \texttt{ul} & $\rightarrow$ & \texttt{bull} \\
+  \texttt{ll} & $\rightarrow$ & \texttt{bull}, \texttt{call} \\
+  \texttt{\$c} & $\rightarrow$ & \texttt{call} \\
+  \texttt{ca} & $\rightarrow$ & \texttt{call} \\
+  \texttt{al} & $\rightarrow$ & \texttt{call} \\
+\end{longtable}
+%
+Take $P_1$, build its 2-grams and search them in the previous index:
+%
+\begin{longtable}{ccl}
+  \texttt{\$b} & $\rightarrow$ & \texttt{bingo}, \texttt{boss},
+  \texttt{box}, \texttt{bull} \\
+  \texttt{ba} & $\rightarrow$ & $\emptyset$ \\
+  \texttt{an} & $\rightarrow$ & $\emptyset$ \\
+  \texttt{ng} & $\rightarrow$ & \texttt{bingo} \\
+\end{longtable}
+%
+Then make the merge of the results, compute the occurrencies, sort decreasely
+and then return the top 1 or 2 results. Since we are looking for results with at
+most 1-edit error, we return the results that share at least $|P_1| - E \cdot k
+= 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{bingo}.
+
+Now take $P_2$ and procede as before:
+%
+\begin{longtable}{ccl}
+  \texttt{\$b} & $\rightarrow$ & \texttt{bingo}, \texttt{boss},
+  \texttt{box}, \texttt{bull} \\
+  \texttt{ba} & $\rightarrow$ & $\emptyset$ \\
+  \texttt{al} & $\rightarrow$ & \texttt{call} \\
+  \texttt{ll} & $\rightarrow$ & \texttt{bull}, \texttt{call} 
+\end{longtable}
+%
+In this case, \texttt{bull} and \texttt{call} are returned.
+
+For a more accurate result, we may transform this problem into an exact search:
+given $D$, we construct a $D'$ with all the possible 1-deletions of the words
+contained in $D$:
+%
+\begin{align*}
+  D' = \{ \texttt{bing}, \texttt{bino}, \texttt{bngo}, \texttt{ingo}, \dots \}
+\end{align*}
+%
+Then:
+%
+\begin{itemize}
+
+  \item in order to find 1-insertions, we compute all 1-deletions from the query
+  string and we search them in $D$;
+
+  \item in order to find 1-deletions, we search the query string in $D'$;
+
+  \item in order to find 1-substitutions, we compute all 1-deletions from the
+  query string and we search them in $D'$;
+
+  \item in order to find an exact match, we simply do an exact search in $D$.
+
+\end{itemize}
