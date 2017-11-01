@@ -96,7 +96,7 @@ Given a set of binary vectors,
     &= 1 - \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k.
   \end{align*}
   %
-  The porbability that this will happen for all $L$ projections is
+  The probability that this will happen for all $L$ projections is
   %
   \begin{align*}
     &\mathbb{P}[h_1(\textbf{v}) \neq h_1(\textbf{w}) \wedge \dots \wedge
@@ -149,17 +149,17 @@ Given a set of binary vectors,
     d_H(\mathbf{v}_1, \mathbf{v}_2) &\approx
     n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_1),
     g(\mathbf{v}_2)}{L}} \right) \\
-    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{1}{3}} \right) \approx 0.63
+    &= 5 \cdot \left( 1 - \sqrt{1 - \frac{1}{3}} \right) \approx 0.918
     \approx 1 \\
     d_H(\mathbf{v}_1, \mathbf{v}_3) &\approx
     n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_1),
     g(\mathbf{v}_3)}{L}} \right) \\
-    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{2}{3}} \right) \approx 1.53
+    &= 5 \cdot \left( 1 - \sqrt{1 - \frac{2}{3}} \right) \approx 2.113
     \approx 2 \\
     d_H(\mathbf{v}_2, \mathbf{v}_3) &\approx
     n \cdot \left( 1 - \sqrt[k]{1 - \frac{d_H(g(\mathbf{v}_2),
     g(\mathbf{v}_3)}{L}} \right) \\
-    &= 5 \cdot \left( 1 - \sqrt[3]{1 - \frac{3}{3}} \right) = 5\ (\neq 3) \\
+    &= 5 \cdot \left( 1 - \sqrt{1 - \frac{3}{3}} \right) = 5\ (\neq 3) \\
   \end{align*}
 
 \end{enumerate}
