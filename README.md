@@ -40,11 +40,12 @@ Like the course, the various solutions will be divided into the following topics
   Query processing: skip pointers (with solution based on dynamic programming),
   caching, phrase queries. Zone index and tiered index. The auto-complete
   problem and its solutions for the top-1, top-2, ..., top-k strings.
-  9. **Postings Compression**: Posting list compression, codes: gamma, delta,
-  variable bytes, PForDelta and Elias-Fano. Rank and Select data structures, two
-  approaches: the case of B untouched and extra o(B) bits, and the case of
-  Elias-Fano's approach with B compressed. Succinct representation of binary
-  trees and its navigational operations (heap like notation).
+  9. [**Postings Compression**](https://github.com/flandolfi/IR-exercises/tree/master/09_posting_compression):
+  Posting list compression, codes: gamma, delta, variable bytes, PForDelta and
+  Elias-Fano. Rank and Select data structures, two approaches: the case of B
+  untouched and extra o(B) bits, and the case of Elias-Fano's approach with B
+  compressed. Succinct representation of binary trees and its navigational
+  operations (heap like notation).
   10. **Text Ranking**: Text-based ranking: dice, jaccard, tf-idf. Vector space
   model. Storage of tf-idf and use for computing document-query similarity. Fast
   top-k retrieval: high idf, champion lists, many query-terms, fancy hits,
@@ -96,7 +97,7 @@ previous programme.
 | [30/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140630.docx)      |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
 | [09/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140609.docx)      |   |   |   |   |   |   | ● | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [29/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140129.docx)      |   |   |   |   |   |   |   |   | ● |   |   |   | ● |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
-| [08/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140108.docx)      |   | ● |   |   |   |   | ● |   | ● |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-2%2F6-yellow.svg)|
+| [08/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140108.docx)      |   | ● |   |   |   |   | ● |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-2%2F6-yellow.svg)|
 | [16/07/13](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir12/ir130716.docx)      |   |   |   |   |   |   | ● |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
 | [25/06/13](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir12/ir130625.docx)      |   |   |   |   |   |   |   |   |   | ● | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [12/02/13](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir12/ir130212.docx)      |   |   |   |   |   |   |   |   |   | ● |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
@@ -133,11 +134,11 @@ follow these instructions:
   2. Create a .tex file containing:
       - The text of the problem, preceded by the LaTeX macro `\exercise`;
       - The solution of the problem, preceded by the LaTeX macro `\solution`;
-  3. If you need a package, add it in the IR-exercise.tex file, using
+  3. If you need a package, add it in the `IR-exercise.tex` file, using
   `\usepackage{<package>}`;
   4. Place the file in the specific folder for the subject of the exercise you
   have solved;
-  5. Append your name in the `\author{<name>}` field in the IR-exercise.tex
+  5. Append your name in the `\author{<name>}` field in the `IR-exercise.tex`
   file, preceded by `\and`;
   6. Submit a pull request!
 
