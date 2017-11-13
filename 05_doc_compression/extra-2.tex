@@ -12,48 +12,55 @@ execution of the algorithm zsync, using blocks of size 2 chars.
   \item[rsync] Client starts computing the hashes of $f_{old}$ divided by blocks
   of 3 chars:
   %
-  \begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|}
-      \tt{a b a} & \tt{c c c} & \tt{d a c} \\
-      $H_1$ & $H_2$ & $H_3$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{a b a}}_{H_1}\
+    \underbracket{\vphantom{\tt g}\texttt{c c c}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{d a c}}_{H_3}
+  \end{align*}
   %
   The client sends the hashcodes to the server, which compares them to the ones
   produced by the rolling hash on $f_{new}$:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-      \tt{c} & \tt{a b a} & \tt{d} & \tt{d a c} & \tt{c c} \\
-      ? & $H_1$ & ? & $H_3$ & ? \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \texttt{c}\
+    \underbracket{\vphantom{\tt g}\texttt{a b a}}_{H_1}\
+    \texttt{d}\
+    \underbracket{\vphantom{\tt g}\texttt{d a c}}_{H_3}\
+    \texttt{c c}
+  \end{align*}
   %
   The server then sends: "{\tt c}", $H_1$, "{\tt d}", $H_3$, "{\tt cc}".
 
   \item[zsync] Server starts computing the hashes of $f_{new}$ divided block by
   block:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-      \tt{c a} & \tt{b a} & \tt{d d} & \tt{a c} & \tt{c c} \\
-      $H_1$ & $H_2$ & $H_3$ & $H_4$ & $H_5$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a}}_{H_1}\
+    \underbracket{\vphantom{\tt g}\texttt{b a}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{d d}}_{H_3}\
+    \underbracket{\vphantom{\tt g}\texttt{a c}}_{H_4}\
+    \underbracket{\vphantom{\tt g}\texttt{c c}}_{H_5}
+  \end{align*}
   %
   The server sends the hashcodes to the client, which compares them to the ones
   produced by the rolling hash on $f_{old}$:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-      \tt{a} & \tt{b a} & \tt{c c} & \tt{c d} & \tt{a c} \\
-      ? & $H_2$ & $H_5$ & ? & $H_4$\\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \texttt{a}\ \
+    \mathrlap{\underbracket{\vphantom{\tt g}\phantom{\texttt{b}\ \
+    \texttt{a}}}_{H_2}}
+    \texttt{b}\ \
+    \mathrlap{\overbracket{\vphantom{\tt d}\phantom{\texttt{a}\ \
+    \texttt{c}}}^{H_4}}
+    \texttt{a}\ \
+    \mathrlap{\underbracket{\vphantom{\tt g}\phantom{\texttt{c}\ \
+    \texttt{c}}}_{H_5}}
+    \texttt{c}\ \
+    \mathrlap{\overbracket{\vphantom{\tt d}\phantom{\texttt{c}\ \
+    \texttt{c}}}^{H_5}}
+    \texttt{c}\ \  \texttt{c}\ \  \texttt{d}\ \
+    \underbracket{\vphantom{\tt g}\texttt{a}\ \  \texttt{c}}_{H_4}
+  \end{align*}
   %
   Then client sends the vector: 01011. The server then computes the \emph{gzip}
   of the unmatched substrings given the matched ones:
@@ -61,11 +68,12 @@ execution of the algorithm zsync, using blocks of size 2 chars.
   \begin{table}[H]
     \centering
     \begin{tabular}{r|lcl}
-    \tt{b a a c c}\colorbox{pink}{\tt c} & \colorbox{yellow}{\tt c a } {\tt d d \$} & &
+    \tt{b a a c c}\colorbox{pink}{\tt c} & \colorbox{yellow}{\tt c a}{\tt d d \$} & &
     $\langle 1, 1, \text{\tt a} \rangle$ \\
-    \tt{b a a c c c} & {\tt c a } \colorbox{yellow}{\tt d} {\tt d \$} & &
+    \tt{b a a c c c} & {\tt c a} \colorbox{yellow}{\tt d} {\tt d \$} & &
     $\langle 0, 0, \text{\tt d} \rangle$ \\
-    \tt{b a a c c c} & {\tt c a } \colorbox{pink}{\tt d} \colorbox{yellow}{\tt d \$} & &
+    \tt{b a a c c c} & {\tt c a} \colorbox{pink}{\tt d}\colorbox{yellow}{\tt d
+    \$} & &
     $\langle 1, 1, \text{\tt \$} \rangle$ \\
     \end{tabular}
   \end{table}

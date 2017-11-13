@@ -20,50 +20,48 @@ You are given the two files: $f_{old} = \mathtt{"cane gatto orso"}$, $f_{new} =
   \item[rsync] Client starts computing the hashes of $f_{old}$ divided by blocks
   of 3 chars:
   %
-  \begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-      \tt{c a n} & \tt{e \_ g} & \tt{a t t} & \tt{o \_ o} & \tt{r s o} \\
-      $H_1$ & $H_2$ & $H_3$ & $H_4$ & $H_5$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\
+    \underbracket{\texttt{e \_ g}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\
+    \underbracket{\vphantom{\tt g}\texttt{o \_ o}}_{H_4}\
+    \underbracket{\vphantom{\tt g}\texttt{r s o}}_{H_5}
+  \end{align*}
   %
   The client sends the hashcodes to the server, which compares them to the ones
   produced by the rolling hash on $f_{new}$:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|}
-      \tt{c a n} & \tt{e \_ m} & \tt{a t t} & \tt{o \_ d o} & \tt{r s o} \\
-      $H_1$ & ? & $H_3$ & ? & $H_5$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\ \texttt{e \_ m}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\ \texttt{o \_ d o}\
+    \underbracket{\vphantom{\tt g}\texttt{r s o}}_{H_5}
+  \end{align*}
   %
   The server then sends: $H_1$, "\texttt{e g}", $H_3$, "\texttt{o do}", $H_5$.
 
   \item[zsync] Server starts computing the hashes of $f_{new}$ divided block by
   block:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-      \tt{c a n} & \tt{e \_ m} & \tt{a t t} & \tt{o \_ d} & \tt{o r s} &
-      \tt{o \$} \\
-      $H_1$ & $H_2$ & $H_3$ & $H_4$ & $H_5$ & $H_6$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\
+    \underbracket{\vphantom{\tt g}\texttt{e \_ m}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\
+    \underbracket{\vphantom{\tt g}\texttt{o \_ d}}_{H_4}\
+    \underbracket{\vphantom{\tt g}\texttt{o r s}}_{H_5}\
+    \underbracket{\vphantom{\tt g}\texttt{o \$}}_{H_6}\
+  \end{align*}
   %
   The server sends the hashcodes to the client, which compares them to the ones
   produced by the rolling hash on $f_{old}$:
   %
-  \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|}
-      \tt{c a n} & \tt{e \_ g} & \tt{a t t} & \tt{o \_} & \tt{o r s} &
-      \tt{o \$} \\
-      $H_1$ & ? & $H_3$ & ? & $H_5$ & $H_6$ \\
-    \end{tabular}
-  \end{table}
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\
+    \texttt{e \_ g}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\
+    \texttt{o \_}\
+    \underbracket{\vphantom{\tt g}\texttt{o r s}}_{H_5}\
+    \underbracket{\vphantom{\tt g}\texttt{o \$}}_{H_6}\
+  \end{align*}
   %
   Then client sends the vector: 101011. The server then computes the \emph{gzip}
   of the unmatched substrings given the matched ones:

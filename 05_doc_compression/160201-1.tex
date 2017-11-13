@@ -9,23 +9,19 @@ Show how to synchronize via rsync the new file $f_{old} = \text{\tt
 The client starts computing the hashes of $f_{old}$ divided by blocks
 of 3 chars:
 %
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \tt{b a c} & \tt{a d d} & \tt{a b b} & \tt{b \$}\\
-    $H_1$ & $H_2$ & $H_3$ & $H_4$ \\
-  \end{tabular}
-\end{table}
-%
+\begin{align*}
+  \underbracket{\vphantom{\tt g}\texttt{b a c}}_{H_1}\
+  \underbracket{\vphantom{\tt g}\texttt{a d d}}_{H_2}\
+  \underbracket{\vphantom{\tt g}\texttt{a b b}}_{H_3}\
+  \underbracket{\vphantom{\tt g}\texttt{b \$}}_{H_4}
+\end{align*}
 The client sends the hashcodes to the server, which compares them to the ones
 produced by the rolling hash on $f_{new}$:
 %
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \tt{a c} & \tt{a b b} & \tt{b d a} & \tt{b \$} \\
-    ? & $H_3$ & ? & $H_4$ \\
-  \end{tabular}
-\end{table}
+\begin{align*}
+  \texttt{a c}\
+  \underbracket{\vphantom{\tt g}\texttt{a b b}}_{H_3}\ \texttt{b d a}\
+  \underbracket{\vphantom{\tt g}\texttt{b \$}}_{H_4}
+\end{align*}
 %
 Then server the sends: "{\tt a c}", $H_3$, "{\tt b d a}", $H_4$.
