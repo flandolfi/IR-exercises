@@ -67,14 +67,12 @@ execution of the algorithm zsync, using blocks of size 2 chars.
   %
   \begin{table}[H]
     \centering
+    \ttfamily
     \begin{tabular}{r|lcl}
-    \tt{b a a c c}\colorbox{pink}{\tt c} & \colorbox{yellow}{\tt c a}{\tt d d \$} & &
-    $\langle 1, 1, \text{\tt a} \rangle$ \\
-    \tt{b a a c c c} & {\tt c a} \colorbox{yellow}{\tt d} {\tt d \$} & &
-    $\langle 0, 0, \text{\tt d} \rangle$ \\
-    \tt{b a a c c c} & {\tt c a} \colorbox{pink}{\tt d}\colorbox{yellow}{\tt d
-    \$} & &
-    $\langle 1, 1, \text{\tt \$} \rangle$ \\
+    b a a c c \colorbox{pink}{a}c c &\colorbox{yellow}{a d} \$ & &
+    $\langle 3, 1, \text{\tt d} \rangle$ \\
+    b a a c c a c c & a d \colorbox{yellow}{\$} & &
+    $\langle 0, 0, \text{\tt \$} \rangle$ \\
     \end{tabular}
   \end{table}
 
