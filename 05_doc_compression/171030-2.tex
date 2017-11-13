@@ -1,0 +1,95 @@
+\exercise
+
+You are given the files: $f_{old}$ = "\texttt{cane gatto orso}", $f_{new}$ =
+"\texttt{matto cane ratto}", and assume a block size $B = 3$ chars.
+
+\begin{enumerate}
+
+  \item Show the execution of the algorithm rsync \emph{(comment the various
+  steps)}.
+
+  \item Show the execution of the algorithm zsync \emph{(comment the various
+  steps)}.
+
+\end{enumerate}
+
+\solution
+
+
+\begin{description}
+
+  \item[rsync] Client starts computing the hashes of $f_{old}$ divided by blocks
+  of 3 chars:
+  %
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\
+    \underbracket{\texttt{e \_ g}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\
+    \underbracket{\vphantom{\tt g}\texttt{o \_ o}}_{H_4}\
+    \underbracket{\vphantom{\tt g}\texttt{r s o}}_{H_5}
+  \end{align*}
+  %
+  The client sends the hashcodes to the server, which compares them to the ones
+  produced by the rolling hash on $f_{new}$:
+  %
+  \begin{align*}
+    \texttt{m}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\ \texttt{o \_}\
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_1}\ \texttt{e \_ r}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_3}\ \texttt{o}
+  \end{align*}
+  %
+  The server then sends: "\texttt{m}", $H_3$, "\texttt{o \_}", $H_1$, "\texttt{e
+  r}", $H_3$, "\texttt{o}".
+
+  \item[zsync] Server starts computing the hashes of $f_{new}$ divided block by
+  block:
+  %
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{m a t}}_{H_1}\
+    \underbracket{\vphantom{\tt g}\texttt{t o \_}}_{H_2}\
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_3}\
+    \underbracket{\vphantom{\tt g}\texttt{e \_ r}}_{H_4}\
+    \underbracket{\vphantom{\tt g}\texttt{a t t}}_{H_5}\
+    \underbracket{\vphantom{\tt g}\texttt{o \$}}_{H_6}
+  \end{align*}
+  %
+  The server sends the hashcodes to the client, which compares them to the ones
+  produced by the rolling hash on $f_{old}$:
+  %
+  \begin{align*}
+    \underbracket{\vphantom{\tt g}\texttt{c a n}}_{H_3}\
+    \texttt{e \_ g}\
+    \mathrlap{\underbracket{\vphantom{\tt g}\phantom{\texttt{a t}\
+    \texttt{t}}}_{H_5}}
+    \texttt{a t}\
+    \mathrlap{\overbracket{\vphantom{\tt l}\phantom{\texttt{t}\
+    \texttt{o \_}}}^{H_2}}
+    \texttt{t}\ \texttt{o \_}\
+    \texttt{o r s}\
+    \underbracket{\vphantom{\tt g}\texttt{o \$}}_{H_6}
+  \end{align*}
+  %
+  Then client sends the vector: 011011. The server then computes the \emph{gzip}
+  of the unmatched substrings given the matched ones:
+  %
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{r|lcl}
+    \tt{t o \_ c a n a t t o \$} & \colorbox{yellow}{\tt e}
+    {\tt \_ g o r s \$} & &
+    $\langle 0, 0, \text{\tt e} \rangle$ \\
+    \tt{t o} \colorbox{pink}{\_}{\tt c a n a t t o \$} & {\tt e}
+    \colorbox{yellow}{\tt \_ g} {\tt o r s \$} & &
+    $\langle 10, 1, \text{\tt g} \rangle$ \\
+    \tt{t o \_ c a n a t t} \colorbox{pink}{o}{\tt \$} & {\tt e \_ g}
+    \colorbox{yellow}{\tt o r} {\tt s \$} & &
+    $\langle 5, 1, \text{\tt r} \rangle$ \\
+    \tt{t o \_ c a n a t t o \$} & {\tt e \_ g o r }\colorbox{yellow}{\tt s}
+    {\tt \$} & & $\langle 0, 0, \text{\tt s} \rangle$ \\
+    \tt{t o \_ c a n a t t o \$} & {\tt e \_ g o r s }\colorbox{yellow}{\tt \$}
+    & & $\langle 0, 0, \text{\tt \$} \rangle$ \\
+    \end{tabular}
+  \end{table}
+
+\end{description}

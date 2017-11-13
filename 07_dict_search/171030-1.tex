@@ -1,0 +1,66 @@
+\exercise
+
+Let us given a set of strings $S$ = \{\texttt{pitom}, \texttt{dad},
+\texttt{daddy}, \texttt{zoom}\}.
+
+\begin{enumerate}
+
+  \item Build a 2-gram index over $S$.
+
+  \item Given pattern $P$ = \texttt{atom}, show how your index executes the
+  1-edit error search in $S$.
+
+\end{enumerate}
+
+\solution
+
+Prepend \texttt{\$} to each strings and build all the 2-grams:
+%
+\begin{longtable}{ccl}
+  \texttt{\$p} & $\rightarrow$ & \texttt{pitom}\\
+  \texttt{pi} & $\rightarrow$ & \texttt{pitom} \\
+  \texttt{it} & $\rightarrow$ & \texttt{pitom} \\
+  \texttt{to} & $\rightarrow$ & \texttt{pitom} \\
+  \texttt{om} & $\rightarrow$ & \texttt{pitom}, \texttt{zoom} \\
+  \texttt{\$d} & $\rightarrow$ & \texttt{dad}, \texttt{daddy} \\
+  \texttt{da} & $\rightarrow$ & \texttt{dad}, \texttt{daddy} \\
+  \texttt{ad} & $\rightarrow$ & \texttt{dad}, \texttt{daddy} \\
+  \texttt{dd} & $\rightarrow$ & \texttt{daddy} \\
+  \texttt{dy} & $\rightarrow$ & \texttt{daddy} \\
+  \texttt{\$z} & $\rightarrow$ & \texttt{zoom} \\
+  \texttt{zo} & $\rightarrow$ & \texttt{zoom} \\
+  \texttt{oo} & $\rightarrow$ & \texttt{zoom} \\
+\end{longtable}
+%
+Take $P$, build its 2-grams and search them in the previous index:
+%
+\begin{longtable}{ccl}
+  \texttt{\$a} & $\rightarrow$ & $\emptyset$\\
+  \texttt{at} & $\rightarrow$ & $\emptyset$ \\
+  \texttt{to} & $\rightarrow$ & \texttt{pitom} \\
+  \texttt{om} & $\rightarrow$ & \texttt{pitom}, \texttt{zoom} \\
+\end{longtable}
+%
+Then make the merge of the results, compute the occurrencies, sort decreasely
+and then return the top 1 or 2 results. Since we are looking for results with at
+most 1-edit error, we return the results that share at least $|P| - E \cdot k
+= 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{pitom}.
+
+Notice that this solution \emph{may return false positives}. If we want to
+overcome this problem, we have to double check the edit distance of the results
+of each queries using the dynamic programming approach. In this case:
+%
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c|c|c|c|c|}
+            &   & {\tt p} & {\tt i} & {\tt t} & {\tt o} & {\tt m} \\ \hline
+            & 0 &    1    &    2    &    3    &    4    &    5 \\ \hline
+    {\tt a} & 1 &    1    &    2    &    3    &    4    &    5 \\ \hline
+    {\tt t} & 2 &    2    &    2    &    2    &    3    &    4 \\ \hline
+    {\tt o} & 3 &    3    &    3    &    3    &    2    &    3 \\ \hline
+    {\tt m} & 4 &    4    &    4    &    4    &    3    & \colorbox{pink}{2} \\
+    \hline
+  \end{tabular}
+\end{table}
+%
+The real edit distance is in fact 2, so \texttt{pitom} is a false positive.

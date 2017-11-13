@@ -1,0 +1,30 @@
+\exercise
+
+Describe the data structure and query algorithm that solves the 1-error match in
+a dictionary of strings.
+
+\solution
+
+Given a set of strings $D$, we construct a $D'$ with all the possible
+1-deletions of the words contained in $D$, for example:
+%
+\begin{align*}
+  D &= \{ \texttt{bingo}, \dots \} \\
+  D' &= \{ \texttt{bing}, \texttt{bino}, \texttt{bngo}, \texttt{ingo}, \dots \}
+\end{align*}
+%
+Then:
+%
+\begin{itemize}
+
+  \item in order to find 1-insertions, we compute all 1-deletions from the query
+  string and we search them in $D$;
+
+  \item in order to find 1-deletions, we search the query string in $D'$;
+
+  \item in order to find 1-substitutions, we compute all 1-deletions from the
+  query string and we search them in $D'$;
+
+  \item in order to find an exact match, we simply do an exact search in $D$.
+
+\end{itemize}
