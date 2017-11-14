@@ -6,7 +6,7 @@ This folder contains *only* exercises on crawlers and other relevant topics.
 
 | Test Date                                                                                                  | Exercise | Points | Topic              | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:------:|:------------------:|:----------------------------------------------------------------------------------:|
-| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     3    |    5   | Copy Lists         | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     3    |    5   | Copy Lists         | ![Status](https://img.shields.io/badge/Status-Solved-green.svg)                    |
 | [12/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170112.docx)      |     1    |    4   | Mercator           | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [02/09/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160902.docx)      |     1    |    5   | Crawler            | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [02/09/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160902.docx)      |   Bonus  |  Lode  | Mercator           | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |

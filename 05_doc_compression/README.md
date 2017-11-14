@@ -6,7 +6,7 @@ This folder contains *only* exercises on Document Compression.
 
 | Test Date                                                                                                  | Exercise | Points       | Topic              | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:------------:|:------------------:|:----------------------------------------------------------------------------------:|
-| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     2    |     4 + 4    | rsync, zsync       | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
+| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     2    |     4 + 4    | rsync, zsync       | ![Status](https://img.shields.io/badge/Status-Solved-green.svg)                    |
 | [05/09/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170905.docx)      |     1    |     3 + 3    | rsync, zsync       | ![Status](https://img.shields.io/badge/Status-To%20be%20reviewed-yellow.svg)       |
 | [12/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170112.docx)      |     2    |     4 + 4    | rsync, zsync       | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [02/09/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160902.docx)      |     2    |     5 + 5    | zdelta             | ![Status](https://img.shields.io/badge/Status-To%20be%20reviewed-yellow.svg)       |
