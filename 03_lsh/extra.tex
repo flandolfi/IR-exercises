@@ -9,7 +9,9 @@ given $k = 2$ and $L = 2$. \emph{(Hint: use projections $I_1 = \{0, 3\}$, $I_2 =
 
 First, we construct the scketches of every vectors:
 %
-\begin{table}[H]
+\begin{figure}[H]
+  \hfill
+  \begin{minipage}{0.45\columnwidth}
   \centering
   \begin{tabular}{c|c|c}
     {\bf v} & $I_1(\text{\bf v})$ & $I_2(\text{\bf v})$ \\ \hline
@@ -19,9 +21,31 @@ First, we construct the scketches of every vectors:
     D & 00 & 00 \\
     E & 00 & 00 \\
   \end{tabular}
-\end{table}
+  \end{minipage}
+  \begin{minipage}{0.45\columnwidth}
+  \begin{tikzpicture}
+    \centering
+    \def \radius {1cm}
+    \def \margin {20}
 
-By the previous table, we can conclude that:
+    \node[draw, circle] at (0:\radius) {C};
+    \draw[-, >=latex] ({0+\margin}:\radius)
+      arc ({0+\margin}:{72-\margin}:\radius);
+    \node[draw, circle] at (72:\radius) {B};
+    \draw[-, >=latex] ({72+\margin}:\radius)
+      arc ({72+\margin}:{144-\margin}:\radius);
+    \node[draw, circle] at (144:\radius) {A};
+    \node[draw, circle] at (216:\radius) {D};
+    \draw[-, >=latex] ({216+\margin}:\radius)
+      arc ({216+\margin}:{288-\margin}:\radius);
+    \node[draw, circle] at (288:\radius) {E};
+
+  \end{tikzpicture}
+  \end{minipage}
+  \hfill
+\end{figure}
+%
+By the previous table, we can construct the similarity graph and conclude that:
 %
 \begin{itemize}
   \item A, B, C are similar;
