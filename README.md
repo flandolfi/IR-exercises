@@ -1,8 +1,9 @@
 # Exercises of Information Retrieval #
 
 This repository contains the exercises (and some of their solutions) of the
-various test exams of the Information Retrieval (IR) course, taught by prof.
-Paolo Ferragina.
+various test exams of the [Information Retrieval
+(IR)](http://didawiki.cli.di.unipi.it/doku.php/magistraleinformatica/ir/start)
+course, taught by [Prof. Paolo Ferragina](http://www.di.unipi.it/~ferragin/).
 
 ## Subjects of the course ##
 
@@ -46,12 +47,13 @@ Like the course, the various solutions will be divided into the following topics
   untouched and extra o(B) bits, and the case of Elias-Fano's approach with B
   compressed. Succinct representation of binary trees and its navigational
   operations (heap like notation).
-  10. **Text Ranking**: Text-based ranking: dice, jaccard, tf-idf. Vector space
-  model. Storage of tf-idf and use for computing document-query similarity. Fast
-  top-k retrieval: high idf, champion lists, many query-terms, fancy hits,
-  clustering. Exact Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio,
-  pseudo-relevance feedback, query expansion. Performance measures: precision,
-  recall, F1 and user happiness.
+  10. [**Text Ranking**](https://github.com/flandolfi/IR-exercises/tree/master/10_text_ranking):
+  Text-based ranking: dice, jaccard, tf-idf. Vector space model. Storage of
+  tf-idf and use for computing document-query similarity. Fast top-k retrieval:
+  high idf, champion lists, many query-terms, fancy hits, clustering. Exact
+  Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio, pseudo-relevance
+  feedback, query expansion. Performance measures: precision, recall, F1 and
+  user happiness.
   11. **Web Ranking**: Random Walks. Link-based ranking: pagerank, topic-based
   pagerank, personalized pagerank, CoSim rank.
   12. **Applications**: HITS. Recommendation systems and Web advertising.
@@ -68,28 +70,27 @@ exam (denoted by the date in which it was taken). The numbers describe the
 topics as in the previous section.
 
 ***WARNING***: The following table is just a stub. Many exercises may be
-misclassified.
-
+misclassified.   
 ***WARNING***: Every exam taken before 2016 may contain exercises form a
 previous programme.
 
 | Test Date                                                                                                  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10| 11| 12| 13| 14| 15| Status                                                        |
 |:----------------------------------------------------------------------------------------------------------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-------------------------------------------------------------:|
-| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |   | ● | ● |   | ● |   | ● |   |   |   | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
+| [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |   | ● | ● |   | ● |   | ● |   |   |   | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-5%2F6-green.svg) |
 | [05/09/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170905.docx)      |   |   |   | ● | ● |   | ● |   |   |   | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-1%2F4-red.svg)   |
 | [27/07/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170727.docx)      |   |   |   |   |   |   | ● |   | ● | ● | ● |   |   |   | ● |![Status](https://img.shields.io/badge/Solved-1%2F6-red.svg)   |
 | [29/06/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170629.docx)      |   |   |   |   |   |   | ● |   | ● | ● | ● |   |   |   | ● |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
-| [12/06/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170612.docx)      |   |   |   | ● |   |   |   |   | ● | ● | ● |   |   | ● | ● |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
+| [12/06/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170612.docx)      |   |   |   | ● |   |   |   |   | ● |   | ● |   |   | ● | ● |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [01/02/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170201_lab.docx)  |   |   |   |   |   |   |   |   |   |   |   |   |   |   | ● |![Status](https://img.shields.io/badge/Solved-0%2F2-red.svg)   |
 | [12/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170112.docx)      |   | ● | ● |   | ● |   |   |   |   | ● | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
 | [10/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170110_lab.docx)  |   |   |   |   |   |   |   |   |   |   |   |   |   |   | ● |![Status](https://img.shields.io/badge/Solved-0%2F2-red.svg)   |
 | [02/09/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160902.docx)      |   | ● | ● |   | ● |   | ● |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-2%2F5-yellow.svg)|
 | [27/06/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160627.docx)      |   | ● |   |   |   |   | ● |   | ● |   | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-1%2F4-red.svg)   |
-| [01/02/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160201.docx)      |   |   | ● |   | ● |   | ● |   |   | ● |   |   |   | ● |   |![Status](https://img.shields.io/badge/Solved-1%2F6-red.svg)   |
+| [01/02/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160201.docx)      |   |   | ● |   | ● |   | ● |   |   |   |   |   |   | ● |   |![Status](https://img.shields.io/badge/Solved-1%2F6-red.svg)   |
 | [11/01/16](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir15/ir160111.docx)      |   |   | ● |   | ● |   | ● |   | ● |   | ● |   |   | ● |   |![Status](https://img.shields.io/badge/Solved-2%2F6-yellow.svg)|
 | [10/09/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150910.docx)      |   | ● |   |   | ● |   | ● |   |   | ● |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
 | [20/07/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150720.docx)      |   |   |   |   |   |   |   |   |   | ● |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
-| [29/06/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150629.docx)      |   | ● |   |   |   |   |   |   |   | ● |   |   |   | ● |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
+| [29/06/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150629.docx)      |   | ● |   |   |   |   |   |   |   |   |   |   |   | ● |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
 | [05/06/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150605.docx)      |   |   |   |   |   |   |   |   | ● | ● | ● |   | ● |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [09/02/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150209.docx)      |   |   |   |   |   |   | ● |   |   | ● |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
 | [16/01/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150116.docx)      | ● |   |   |   |   |   | ● |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
