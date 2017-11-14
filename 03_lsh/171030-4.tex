@@ -1,0 +1,64 @@
+\exercise
+
+You are given the sets $A$ = \{1, 4, 6, 8, 9\}, $B$ = \{2, 3, 4, 6, 7, 8\}, $C$ =
+\{2, 5, 11, 12\}, show how MinHashing technique (in the context of Locality
+Sensity Hashing) can be used to estimate the Jaccard similarity among them,
+based on a sketch of size 2 (integers -- minima), and assuming that sets $A$,
+$B$, $C$ are drawn from the universe \{0, 1, \dots, 11, 12\}.
+
+\solution In order to compute the MinHashing, we first permute the sets: since
+we need a sketch of size 2, we create two permuting functions $\pi_1$ and
+$\pi_2$ such that:
+%
+\begin{align*}
+  \pi_1(x) &= 2x + 1 \mod 13 \\
+  \pi_2(x) &= x + 2 \mod 13
+\end{align*}
+%
+The permuted sets are:
+%
+\begin{align*}
+  \pi_1(A) &= \{ 3, 9, \underline{0}, 4, 6 \} \\
+  \pi_2(A) &= \{ \underline{3}, 6, 8, 10, 11 \} \\
+  \pi_1(B) &= \{ 5, 10, 9, \underline{0}, 2, 4 \} \\
+  \pi_2(B) &= \{ \underline{4}, 5, 6, 8, 9, 10 \} \\
+  \pi_1(C) &= \{ \underline{5}, 11, 10, 12 \} \\
+  \pi_2(C) &= \{ 4, 7, \underline{0}, 1 \}
+\end{align*}
+%
+The sketches of the sets are composed by the minima of the permuted sets, i.e.:
+%
+\begin{align*}
+  h(A) &= \langle \min \{ \pi_1(A) \}, \min \{ \pi_2(A) \}\rangle =
+  \langle 0, 3 \rangle \\
+  h(B) &= \langle \min \{ \pi_1(B) \}, \min \{ \pi_2(B) \}\rangle =
+  \langle 0, 4 \rangle \\
+  h(C) &= \langle \min \{ \pi_1(C) \}, \min \{ \pi_2(C) \}\rangle =
+  \langle 5, 0 \rangle
+\end{align*}
+%
+Since we know that given two sets $S_1$ and $S_2$ and a random permutation $\pi$
+we have that
+%
+\begin{align*}
+  \mathbb{P}[ \min \{ \pi(S_1) \} = \min \{ \pi(S_2) \} ] = Jaccard(S_1, S_2)
+\end{align*}
+%
+we can empirically estimate the above probability by dividing the number of
+equal occurence of the sketches of two sets by their dimension, obtaining:
+%
+\begin{align*}
+  Jaccard(A, B) &= \mathbb{P}[ \min \{ \pi(A) \} = \min \{ \pi(B) \} ]
+  \approx 1 - \frac{Hamming(A, B)}{2} = \frac{1}{2} \\
+  Jaccard(A, C) &= \mathbb{P}[ \min \{ \pi(A) \} = \min \{ \pi(C) \} ]
+  \approx 1 - \frac{Hamming(A, C)}{2} = 0 \\
+  Jaccard(B, C) &= \mathbb{P}[ \min \{ \pi(B) \} = \min \{ \pi(C) \} ]
+  \approx 1 - \frac{Hamming(B, C)}{2} = 0
+\end{align*}
+%
+Clearly, since the sketches are composed by only 2 elements, we obtain a poor
+estimation of the Jaccard similarity.
+
+Another approach would have been, instead of computing two permutations of the
+set, compute only one permutation and build the sketches using the two lowest
+elements of the permuted sets.

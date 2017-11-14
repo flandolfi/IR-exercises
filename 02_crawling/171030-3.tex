@@ -1,0 +1,33 @@
+\exercise
+
+Given the two adjacency lists of a Web graph for the nodes 14 and 15, namely
+
+\begin{align*}
+	14 &\rightarrow 3, 10, 11, 13, 14, 17, 19, 21, 25 \\
+	15 &\rightarrow 5, 10, 11, 12, 14, 17, 19, 20, 21, 24, 33
+\end{align*}
+
+show how the list of "15" can be compressed given the list of "14" by means of
+the algorithm adopted in WebGraph via copy-lists and copy-blocks.
+
+\solution
+
+The successors of 15 share the nodes of the posting list of 14 with positions 2,
+3, 5, 6, 7 and 8. These can be represented as copy-lists as follows:
+%
+\begin{longtable}{|c|c|c|c|l|}
+  \hline
+  Node & Outd. & Ref. & Copy List & Extra Nodes \\ \hline
+  14 & 9  & 0 & --        & 3, 10, 11, 13, 14, 17, 19, 21, 25 \\
+  15 & 11 & 1 & 011011110 & 5, 12, 20, 24, 33 \\ \hline
+\end{longtable}
+%
+The copy-lists can be encoded with RLE and represented as copy-blocks as
+follows:
+%
+\begin{longtable}{|c|c|c|c|c|l|}
+  \hline
+  Node & Outd. & Ref. & \# & Copy Block & Extra Nodes \\ \hline
+  14 & 9  & 0 & -- & --    & 3, 10, 11, 13, 14, 17, 19, 21, 25 \\
+  15 & 11 & 1 & 5  & 00103 & 5, 12, 20, 24, 33 \\ \hline
+\end{longtable}
