@@ -125,9 +125,9 @@ page](https://github.com/flandolfi/IR-exercises/releases).
 
 You can otherwise build it yourself, using the following commands:
 
-    $ git clone https://github.com/flandolfi/IR-exercises.git
-    $ cd IR-exercises/
-    $ make
+    git clone https://github.com/flandolfi/IR-exercises.git
+    cd IR-exercises/
+    make
 
 ## How to contribute ##
 
