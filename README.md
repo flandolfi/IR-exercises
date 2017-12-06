@@ -54,13 +54,17 @@ Like the course, the various solutions will be divided into the following topics
   Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio, pseudo-relevance
   feedback, query expansion. Performance measures: precision, recall, F1 and
   user happiness.
-  11. **Web Ranking**: Random Walks. Link-based ranking: pagerank, topic-based
-  pagerank, personalized pagerank, CoSim rank, HITS.
-  12. **Projections**: Projections to smaller spaces: Latent Semantic Indexing
-  (LSI). Random Projections: Johnson-Linderstauss Lemma and its applications.
-  13. **Topic Annotator**: Semantic-annotation tools: basics, Wikipedia
-  structure, TAGME and other annotators. How to evaluate those systems.
-  14. **Lucene**: Introduction to Lucene.
+  11. [**Web Ranking**](https://github.com/flandolfi/IR-exercises/tree/master/11_web_ranking):
+  Random Walks. Link-based ranking: pagerank, topic-based pagerank, personalized
+  pagerank, CoSim rank, HITS.
+  12. [**Projections**](https://github.com/flandolfi/IR-exercises/tree/master/12_projections):
+  Projections to smaller spaces: Latent Semantic Indexing (LSI). Random
+  Projections: Johnson-Linderstauss Lemma and its applications.
+  13. [**Topic Annotator**](https://github.com/flandolfi/IR-exercises/tree/master/13_annotators):
+  Semantic-annotation tools: basics, Wikipedia structure, TAGME and other
+  annotators. How to evaluate those systems.
+  14. [**Lucene**](https://github.com/flandolfi/IR-exercises/tree/master/14_lucene):
+  Introduction to Lucene.
 
 ## Topics covered by the exams ##
 
