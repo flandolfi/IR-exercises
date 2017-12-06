@@ -46,7 +46,7 @@ Like the course, the various solutions will be divided into the following topics
   Elias-Fano. Rank and Select data structures, two approaches: the case of B
   untouched and extra o(B) bits, and the case of Elias-Fano's approach with B
   compressed. Succinct representation of binary trees and its navigational
-  operations (heap like notation).
+  operations (heap like notation), LOUDS.
   10. [**Text Ranking**](https://github.com/flandolfi/IR-exercises/tree/master/10_text_ranking):
   Text-based ranking: dice, jaccard, tf-idf. Vector space model. Storage of
   tf-idf and use for computing document-query similarity. Fast top-k retrieval:
@@ -94,8 +94,8 @@ previous programme.
 | [09/02/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150209.docx)      |   |   |   |   |   |   | ● |   |   | ● |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
 | [16/01/15](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir14/ir150116.docx)      | ● |   |   |   |   |   | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [29/07/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140729.docx)      |   |   |   | ● |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
-| [30/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140630.docx)      |   |   |   |   |   |   |   |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
-| [09/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140609.docx)      |   |   |   |   |   |   | ● | ● |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
+| [30/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140630.docx)      |   |   |   |   |   |   |   |   | ● |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F4-red.svg)   |
+| [09/06/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140609.docx)      |   |   |   |   |   |   | ● | ● |   |   | ● |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F5-red.svg)   |
 | [29/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140129.docx)      |   |   |   |   |   |   |   |   | ● |   |   | ● |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
 | [08/01/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140108.docx)      |   | ● |   |   |   |   | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-2%2F6-yellow.svg)|
 | [16/07/13](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir12/ir130716.docx)      |   |   |   |   |   |   | ● |   |   |   |   |   |   |   |![Status](https://img.shields.io/badge/Solved-0%2F6-red.svg)   |
