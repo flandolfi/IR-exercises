@@ -14,10 +14,9 @@ TOPICS=(
   [09_posting_compression]="Postings Compression"
   [10_text_ranking]="Text Ranking"
   [11_web_ranking]="Web Ranking"
-  [12_applications]="Applications"
-  [13_projections]="Projections"
-  [14_annotators]="Topic Annotator"
-  [15_lucene]="Lucene"
+  [12_projections]="Projections"
+  [13_annotators]="Topic Annotator"
+  [14_lucene]="Lucene"
 )
 
 OUT="% --------------- DO NOT EDIT --------------- %\n% This file has been automatically generated. %\n\n"
