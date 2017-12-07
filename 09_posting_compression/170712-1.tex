@@ -19,7 +19,7 @@ We store the cumulative sum of 1s every $Z$ elements and the relative sum every 
   }
 \end{table}
 
-To solve $Rank_1(7)$, that is, to count the number of 1s between the first and the seventh positions, we sum all the counters in the second row up to the seventh position; then, we add the first number in the third row that precedes the seventh position. The partial result is $2+2=4$, that corresponds to the number of 1s up to the sixth position.
+To solve $Rank_1(7)$, that is, to count the number of 1s between the first and the seventh positions, we sum the first two counters in the second and in the third row that precede the seventh position. The partial result is $2+2=4$, that corresponds to the number of 1s up to the sixth position.
 
 Now we have to add to the partial result the 1s from the sixth to the seventh positions. We exploit a $2^z \times z$ precomputed table that counts the number of 1s in any prefix of a binary string of length $z$:
 \begin{center}
