@@ -1,0 +1,35 @@
+\newcommand{\hl}[1]{\colorbox{yellow}{#1}}
+\exercise
+
+Given the binary array $B =$ 0110 1110 1111 1100:
+\begin{itemize}
+  \item construct the rank data structure over $B$ with $Z=4$ and $z=2$,
+  \item describe how it is executed $Rank_1(7)$
+\end{itemize}
+
+\solution 
+We store the cumulative sum of 1s every $Z$ elements and the relative sum every $z$ elements, as shown, respectively, in the following table's second and third rows:
+\begin{table}[h]
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{c c c c c c c c c c c c c c c c c c c c c c c }
+    0 & 1 &   & 1 & 0 &   & 1 & 1 &   & 1 & 0 &   & 1 & 1 &   & 1 & 1 &   & 1 & 1 &   & 0 & 0 \\ \hline
+      &   &   &   &   & \hl{2} &   &   &   &   &   & 5 &   &   &   &   &   & 9 &   &   &   &   &   \\ \hline
+      &   & 1 &   &   &   &   &   & \hl{2} &   &   &   &   &   & 2 &   &   &   &   &   & 2 &   &   \\
+  \end{tabular}
+  }
+\end{table}
+
+To solve $Rank_1(7)$, that is, to count the number of 1s between the first and the seventh positions, we sum the first two counters in the second and in the third row that precede the seventh position. The partial result is $2+2=4$, that corresponds to the number of 1s up to the sixth position.
+
+Now we have to add to the partial result the 1s from the sixth to the seventh positions. We exploit a $2^z \times z$ precomputed table that counts the number of 1s in any prefix of a binary string of length $z$:
+\begin{center}
+  \begin{tabular}{ l | c  c }
+    \multicolumn{1}{l}{} & \multicolumn{1}{c}{1} & \multicolumn{1}{l}{2} \\
+    \cline{2-3}
+    00 & 0 & 0 \\ 
+    01 & 0 & 1 \\ 
+    10 & \hl{1} & 1 \\ 
+    11 & 1 & 2 \\
+  \end{tabular}
+\end{center}
+Since we want the number of 1s up to the first position of the string ``10'', we access to the cell in row ``10'' and column ``1''. In conclusion, all the memory accesses performed at query-time are highlighted in yellow, resulting in $Rank_1(7)=2+2+1=5$.
