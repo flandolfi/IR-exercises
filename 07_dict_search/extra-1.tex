@@ -60,25 +60,22 @@ index as a trie, as in the following picture:
 %
 The buckets are stored using front coding:
 %
-\begin{longtable}{l}
-  \begin{tabular}{rccc}
-    \null & $\null_\texttt{baccus}$ & $\null_\texttt{bach}$ &
-    $\null_\texttt{bit}$ \\
-    $B_1 \rightarrow$ (\texttt{bacco}) & $\langle 6, 4, \texttt{us} \rangle$ &
-    $\langle 4, 3, \texttt{h} \rangle$ & $\langle 3, 1, \texttt{it} \rangle$ \\
-  \end{tabular} \\
-  \begin{tabular}{rccc}
-    \null & $\null_\texttt{bus}$ & $\null_\texttt{car}$ & $\null_\texttt{cat}$\\
-    $B_2 \rightarrow$ (\texttt{bitly}) & $\langle 3, 1, \texttt{us} \rangle$ &
-    $\langle 3, 0, \texttt{car} \rangle$ & $\langle 3, 2, \texttt{t} \rangle$ \\
-  \end{tabular} \\
-  \begin{tabular}{rccc}
-    \null & $\null_\texttt{cod}$ & $\null_\texttt{cost}$ &
-    $\null_\texttt{costly}$ \\
-    $B_3 \rightarrow$ (\texttt{coat}) & $\langle 3, 2, \texttt{d} \rangle$ &
-    $\langle 4, 2, \texttt{st} \rangle$ & $\langle 6, 4, \texttt{ly} \rangle$ \\
-  \end{tabular}
-\end{longtable}
+\begin{center}
+\begin{tabular}{rccc}
+  $B_1 \rightarrow$ (\texttt{bacco}) &
+  $\underbracket{\langle 6, 4, \texttt{us} \rangle}_{\texttt{baccus}}$ &
+  $\underbracket{\langle 4, 3, \texttt{h} \rangle}_{\texttt{bach}}$ &
+  $\underbracket{\langle 3, 1, \texttt{it} \rangle}_{\texttt{bit}}$ \\
+  $B_2 \rightarrow$ (\texttt{bitly}) &
+  $\underbracket{\langle 3, 1, \texttt{us} \rangle}_{\texttt{bus}}$ &
+  $\underbracket{\langle 3, 0, \texttt{car} \rangle}_{\texttt{car}}$ &
+  $\underbracket{\langle 3, 2, \texttt{t} \rangle}_{\texttt{cat}}$ \\
+  $B_3 \rightarrow$ (\texttt{coat}) &
+  $\underbracket{\langle 3, 2, \texttt{d} \rangle}_{\texttt{cod}}$ &
+  $\underbracket{\langle 4, 2, \texttt{st} \rangle}_{\texttt{cost}}$ &
+  $\underbracket{\langle 6, 4, \texttt{ly} \rangle}_{\texttt{costly}}$ \\
+\end{tabular}
+\end{center}
 %
 Notice that \texttt{bit} and \texttt{bitly} are very similar, so it would be
 great to put them in the same bucket, increasing their compression.
