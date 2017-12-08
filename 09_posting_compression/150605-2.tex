@@ -1,0 +1,36 @@
+\exercise
+
+Given the sequence $S = (1, 2, 1, 1, 4, 7, 7, 4, 1, 3, 9)$, show:
+%
+\begin{itemize}
+  \item the PForDelta encoding with b=2 and base=0,
+  \item the Elias-Fano encoding (warning: remind that EF encodes monotonic
+    sequences).
+\end{itemize}
+
+\solution
+
+In PForDelta we encode values in the interval $[base,base+2^b-1]$ moving
+them to the interval $[0, 2^b-1]$ and storing their representation in $b$ bits.
+Values outside this range are marked with an escape sequence
+$\triangleright=10$, and encoded in a separate list $L$.
+
+In the given case, we translate $S$ to
+%
+$$S'=(0,1,0,0,3,6,6,3,0,2,8),$$
+%
+store the binary representations
+%
+$$00\;01\;00\;00\;11\;\triangleright\;\triangleright\;11\;00\;\triangleright\;
+\triangleright,$$
+%
+and the exceptions list
+$$L=(6,6,2,8).$$
+
+To encode $S$ with Elias-Fano, we create a monotonic sequence decompressing $S$
+with gap encoding:
+%
+$$S''=(1,3,4,5,9,16,23,27,28,31,40).$$
+%
+Then, we follow the procedure explained in Exercise 
+\ref{09_posting_compression:elias} on $S''$.
