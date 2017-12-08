@@ -1,0 +1,36 @@
+\exercise
+
+Given a sequence of integers S=(1, 6, 15, 18, 21, 24, 30), encode them using:
+%
+\begin{itemize}
+  \item gamma encoding
+  \item delta encoding\footnote{http://en.wikipedia.org/wiki/Elias\_delta\_coding}
+  \item Elias-Fano encoding.
+\end{itemize}
+
+\solution
+
+The following table shows the gamma and delta encodings for the $n=7$ given
+integers:
+%
+\begin{center}
+  \begin{tabular}{ r | l | l | l}
+    $S_i$ & Binary & Gamma       & Delta       \\ \hline
+    1     & 1      & 1           & 1           \\
+    6     & 110    & 00\;110     & 011\;10     \\
+    15    & 1111   & 000\;1111   & 00100\;111  \\
+    18    & 10010  & 0000\;10010 & 00101\;0010 \\    
+    21    & 10101  & 0000\;10101 & 00101\;0101 \\
+    24    & 11000  & 0000\;11000 & 00101\;1000 \\
+    30    & 11110  & 0000\;11110 & 00101\;1110 \\
+  \end{tabular}
+\end{center}
+
+The Elias-Fano encoding (cf. Exercise \ref{09_posting_compression:elias}) with
+$u=\lceil\log_2 30\rceil=5$ bits and $z=\lceil\log_2n\rceil=3$ is given by:
+%
+$$L=01\;10\;11\;10\;01\;00\;10,$$
+%
+and
+%
+$$H=10\;10\;0\;10\;10\;10\;10\;10.$$
