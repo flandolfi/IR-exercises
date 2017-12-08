@@ -23,18 +23,18 @@ $z$ elements, as shown in the following table:
     & \multicolumn{1}{c}{}&
     \multicolumn{2}{c}{\scriptsize \hl{2}} &
     \multicolumn{2}{c}{\scriptsize 5} &
-    \multicolumn{2}{c}{\scriptsize 9} & & \emph{\scriptsize (absolute sum)} \\
+    \multicolumn{2}{c}{\scriptsize 9} & & \emph{\scriptsize (cumulative sum)} \\
   \end{tabular}
 \end{table}
 
 To solve $Rank_1(7)$, that is, to count the number of 1's between the first and
-the seventh positions, we sum the first two counters in the second and in the
-third row that precede the seventh position. The partial result is $2+2=4$, that
-corresponds to the number of 1s up to the sixth position.
+the seventh positions, we first sum the last cumulative and relative sums that
+precede the seventh position. The partial result is $2+2=4$, that corresponds to
+the number of 1s up to the sixth position.
 
-Now we have to add to the partial result the 1s from the sixth to the seventh
+Now we have to add to the partial result the 1's from the sixth to the seventh
 positions. We exploit a $2^z \times z$ precomputed table that counts the number
-of 1s in any prefix of a binary string of length $z$:
+of 1's in any prefix of a binary string of length $z$:
 %
 \begin{center}
   \begin{tabular}{ l | c  c }
