@@ -9,7 +9,7 @@ Given the binary array $B =$ 0110 1110 1111 1100:
 
 \solution
 
-We store the cumulative sum of 1's every $Z$ elements and the relative sum every
+We store the cumulative sum of 1s every $Z$ elements and the relative sum every
 $z$ elements, as shown in the following table:
 %
 \begin{table}[h]
@@ -27,14 +27,14 @@ $z$ elements, as shown in the following table:
   \end{tabular}
 \end{table}
 
-To solve $Rank_1(7)$, that is, to count the number of 1's between the first and
+To solve $Rank_1(7)$, that is, to count the number of 1s between the first and
 the seventh positions, we first sum the last cumulative and relative sums that
 precede the seventh position. The partial result is $2+2=4$, that corresponds to
 the number of 1s up to the sixth position.
 
-Now we have to add to the partial result the 1's from the sixth to the seventh
+Now we have to add to the partial result the 1s from the sixth to the seventh
 positions. We exploit a $2^z \times z$ precomputed table that counts the number
-of 1's in any prefix of a binary string of length $z$:
+of 1s in any prefix of a binary string of length $z$:
 %
 \begin{center}
   \begin{tabular}{ l | c  c }
