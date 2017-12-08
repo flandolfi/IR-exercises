@@ -55,7 +55,6 @@ The tree $T$ can be represented as in \autoref{fig:succ_1}.
   \caption{}
   \label{fig:succ_1}
 \end{subfigure}
-\hfill
 \begin{subfigure}[t]{0.45\columnwidth}
   \centering
   \begin{tikzpicture}[grow=down, sloped]
@@ -116,14 +115,13 @@ indexing of our array representation, where every cell contains a bit set to 1
 if the corresponding node contains data, or 0 otherwise. The resulting array is
 shown in the following table:
 %
-\begin{table}[H]
-  \centering
+\begin{center}
   \begin{tabular}{r|c|c|c|c|c|c|c|c|c|c|c}
                    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \hline
     $B_i$          & 1 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 0 &  0 &  0 \\
     $Rank_1(B, i)$ & 1 & 2 & 3 & 4 &   & 5 &   &   &   &    &    \\
   \end{tabular}
-\end{table}
+\end{center}
 
 We can now navigate the succint encoding of the tree using a $Rank_1$ data
 structure and the following procedures:
