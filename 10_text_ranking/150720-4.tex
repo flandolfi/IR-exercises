@@ -1,0 +1,80 @@
+\exercise
+
+\begin{enumerate}
+
+  \item Define the TF-IDF$(w, d)$ weight for a word $w$ in a document $d$;
+
+  \item Given the four texts:
+  %
+  \begin{enumerate}
+    \item $T_1$ = \emph{``la bella casa''}
+    \item $T_2$ = \emph{``le belle cose''}
+    \item $T_3$ = \emph{``casa bella bella''}
+    \item $T_4$ = \emph{``la casa le cose bella rosa''}
+  \end{enumerate}
+  %
+  Show the inverted list with its dictionary and postings, compute the vectors
+  TF-IDF of the four texts. Indicate the text which is more similar to $T_3$
+  under the dot-product distance.
+
+  \item Show how the TF-IDF matrix is space-efficiently stored in the posting
+  lists.
+
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+
+  \item The TF-IDF$(w, d)$ weight is defined as $$\text{TF-IDF}(w, d) =
+  \text{TF}(w, d) \times \text{IDF}(w)$$ where $\text{TF}(w, d)$ is the number
+  of occurrencies of the word $w$ in the document $d$, while $\text{IDF}(w)$ is
+  defined as $$\text{IDF}(w) = \log \frac{N}{\text{DF}(w)}$$ where $N$ is the
+  total number of documents in our collection and $\text{DF}(w)$ is the number
+  of documents containing the word $w$.
+
+  \item We first construct the posting lists:
+  %
+  \begin{longtable}{rcl}
+    \emph{bella} & $\rightarrow$ & $T_1$, $T_3$, $T_4$ \\
+    \emph{belle} & $\rightarrow$ & $T_2$ \\
+    \emph{casa} & $\rightarrow$ & $T_1$, $T_3$, $T_4$ \\
+    \emph{cose} & $\rightarrow$ & $T_2$, $T_4$ \\
+    \emph{la} & $\rightarrow$ & $T_1$, $T_4$ \\
+    \emph{le} & $\rightarrow$ & $T_2$, $T_4$ \\
+    \emph{rosa} & $\rightarrow$ & $T_4$ \\
+  \end{longtable}
+  %
+  Then we apply the TF-IDF formula for all terms and all documents:
+  %
+  \begin{center}
+    \begin{tabular}{c|c|c|c|c|}
+                   & $T_1$ & $T_3$ & $T_3$ & $T_4$ \\ \hline &&&&\\[-1em]
+      \emph{bella} & $1 \cdot\log\frac{4}{3}$ & 0
+                   & $2 \cdot\log\frac{4}{3}$ & $1 \cdot\log\frac{4}{3}$\\[3pt]
+      \emph{belle} & 0 & $1 \cdot\log\frac{4}{1}$ & 0 & 0 \\[3pt]
+      \emph{casa}  & $1 \cdot\log\frac{4}{3}$ & 0
+                   & $1 \cdot\log\frac{4}{3}$ & $1 \cdot\log\frac{4}{3}$ \\[3pt]
+      \emph{cose}  & 0 & $1 \cdot\log\frac{4}{2}$
+                   & 0 & $1 \cdot\log\frac{4}{2}$ \\[3pt]
+      \emph{la}    & $1 \cdot\log\frac{4}{2}$ & 0
+                   & 0 & $1 \cdot\log\frac{4}{2}$ \\[3pt]
+      \emph{le}    & 0 & $1 \cdot\log\frac{4}{2}$
+                   & 0 & $1 \cdot\log\frac{4}{2}$ \\[3pt]
+      \emph{rosa}  & 0 & 0 & 0 & $1 \cdot\log\frac{4}{1}$ \\[3pt] \hline
+    \end{tabular}
+  \end{center}
+
+  Since all but the first and the third element of the $T_3$ column are 0, the
+  documents that are more similar to $T_3$ are the ones that have the highest
+  values on that positions. In this case, we have a tie with $T_1$ and $T_4$,
+  since their dot product have the same value: $$ T_3 \cdot T_1 = T_3 \cdot T_4
+  = 3\log^2\frac{4}{3}.$$
+
+  \item For every word $w$ we ha ve in memory the value of $\text{DF}(w)$ (the
+  length of its posting list), so the value of $\text{IDF}(w)$ is implicitly
+  available.  For every document $d$ in the posting list of the word $w$,
+  instead, we can store its frequency $\text{TF}(w, d)$, which is tipically
+  small and thus can be stored in unary or gamma coding.
+
+\end{enumerate}
