@@ -14,20 +14,21 @@ Each of the $n=16$ integers can be represented in binary with $u=\lceil\log_2
 separator after the $w=\log_2n=3$ most significant bits:
 %
 \begin{center}
-  \begin{tabular}{ r || r | l }
-     2 = & 000 & 10 \\
-     4 = & 001 & 00 \\
-     8 = & 010 & 00 \\
-    10 = & 010 & 10 \\
-    13 = & 011 & 01 \\
-    14 = & 011 & 10 \\
-    15 = & 011 & 11 \\
-    21 = & 101 & 01
+  \begin{tabular}{ c | r | l }
+    $S_i$ & \multicolumn{2}{c}{$(S_i)_2$} \\ \hline
+     2 & 000 & 10 \\
+     4 & 001 & 00 \\
+     8 & 010 & 00 \\
+    10 & 010 & 10 \\
+    13 & 011 & 01 \\
+    14 & 011 & 10 \\
+    15 & 011 & 11 \\
+    21 & 101 & 01
   \end{tabular}
 \end{center}
 %
 Then, we build a vector  $L$ concatenating the $u-w$ less significant bits of
-each number 
+each number
 %
 $$L = 10\; 00\; 00\; 10\; 01\; 10\; 11\; 01.$$
 
