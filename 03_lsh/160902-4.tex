@@ -99,10 +99,10 @@ Given a set of binary vectors,
   The probability that this will happen for all $L$ projections is
   %
   \begin{align*}
-    &\mathbb{P}[h_1(\textbf{v}) \neq h_1(\textbf{w}) \wedge \dots \wedge
-    h_L(\textbf{v}) \neq h_L(\textbf{w})] \\ = &\left(
-    \mathbb{P}[h_i(\textbf{v}) \neq h_i(\textbf{w})] \right)^L \\ = &\left( 1 -
-    \left( 1 - \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k \right)^L.
+    \mathbb{P}[h_1(\textbf{v}) \neq h_1(\textbf{w}) \wedge \dots \wedge
+    h_L(\textbf{v}) \neq h_L(\textbf{w})] = &\left(\mathbb{P}[h_i(\textbf{v})
+    \neq h_i(\textbf{w})] \right)^L \\ = &\left( 1 - \left( 1 -
+    \frac{d_H(\textbf{v}, \textbf{w})}{n} \right)^k \right)^L.
   \end{align*}
   %
   Finally, the probability that at least a projection is shared is
