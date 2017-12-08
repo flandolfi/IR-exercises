@@ -20,8 +20,8 @@ TOPICS=(
 OUT="% --------------- DO NOT EDIT --------------- %\\n% This file has been automatically generated. %\\n\\n"
 
 for t in "${TOPICS[@]}"; do
-  FOLDR=${t[*]//=*}
-  TITLE=${t[*]//*=}
+  FOLDR=${t%=*}
+  TITLE=${t#*=}
   FILES="$(ls $FOLDR | grep \.tex$)"
 
   if [ "$FILES" != "" ]; then
