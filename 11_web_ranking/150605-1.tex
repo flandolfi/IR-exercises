@@ -1,0 +1,69 @@
+\exercise
+
+Let us given a graph $G$ of directed edges $E=\{(1,2), (2,1), (1,4), (3,1)\}$.
+Simulate the execution of two steps of PageRank, starting with nodes with $PR=1$
+(unnormalized), and assuming a teleportation step which favors node 3.
+
+\solution
+
+We want the principal left eigenvector $r$ of
+%
+$$P = \alpha\Pi^\top + (1-\alpha) ee^\top,$$
+%
+were
+%
+\begin{equation*}
+  \Pi_{ij} =
+  \begin{cases*}
+    \sfrac{1}{\left|\left\{(i,k)\;:\;(i,k)\in E\right\}\right|} & if $i \to j$ \\
+    \sfrac{1}{N} & if $i$ is a dangling node \\
+    0 & otherwise
+  \end{cases*}.
+\end{equation*}
+
+We choose $\alpha=\sfrac{1}{3}$ and compute
+\begin{align*}
+  P &=  \alpha\Pi^\top + (1-\alpha) ee^\top \\
+    &=
+        \frac{1}{3}
+        \begin{pmatrix}
+          0&\sfrac{1}{2}&0&\sfrac{1}{2}\\
+          1&0&0&0\\
+          1&0&0&0\\
+          \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}
+        \end{pmatrix}^\top
+        +
+        \left(1-\frac{1}{3}\right)
+          \begin{pmatrix}
+            \sfrac{1}{\sqrt N}\\ \sfrac{1}{\sqrt N}\\
+            \sfrac{1}{\sqrt N}\\ \sfrac{1}{\sqrt N}
+          \end{pmatrix}
+          \begin{pmatrix}
+            \sfrac{1}{\sqrt N}&\sfrac{1}{\sqrt N}&
+            \sfrac{1}{\sqrt N}&\sfrac{1}{\sqrt N}
+          \end{pmatrix} \\
+    &=
+        \frac{1}{3}
+        \begin{pmatrix}0&1&1&\sfrac{1}{4}\\ \sfrac{1}{2}&0&0&\sfrac{1}{4}\\ 0&0&0&\sfrac{1}{4}\\ \sfrac{1}{2}&0&0&\sfrac{1}{4}\end{pmatrix}
+        +
+        \left(1-\frac{1}{3}\right)
+        \begin{pmatrix}
+          \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}\\
+          \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}\\
+          \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}\\
+          \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}
+        \end{pmatrix} \\
+    &=
+        \begin{pmatrix}
+          \sfrac{1}{6}&\sfrac{1}{2}&\sfrac{1}{2}&\sfrac{1}{4}\\
+          \sfrac{1}{3}&\sfrac{1}{6}&\sfrac{1}{6}&\sfrac{1}{4}\\
+          \sfrac{1}{6}&\sfrac{1}{6}&\sfrac{1}{6}&\sfrac{1}{4}\\
+          \sfrac{1}{3}&\sfrac{1}{6}&\sfrac{1}{6}&\sfrac{1}{4}
+        \end{pmatrix}
+\end{align*}
+
+We then perform the power iteration starting at $r_0 =
+(\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4})^\top$:
+%
+$$r_1 = r_0 P = (\sfrac{1}{4} \enskip \sfrac{1}{4} \enskip \sfrac{1}{4} \enskip
+  \sfrac{1}{4})^\top.$$
