@@ -16,6 +16,7 @@ We apply the Personalized PageRank formula
     0        & otherwise
   \end{cases*},
 \end{equation*}
+%
 where $B(i)$ is the set of nodes linking to $i$, and $out(j)$ is the set of
 outgoing links from $j$.
 
@@ -49,16 +50,16 @@ where, due to the fact that all the nodes have only one outgoing link, the edges
 are labelled with 1s. Performing the first iteration we get
 %
 \begin{alignat*}{3}
-  r_1(A) &= \sfrac{1}{2} \cdot (1\cdot0) + \sfrac{1}{2} &&= \sfrac{1}{2} \\
-  r_1(B) &= \sfrac{1}{2} \cdot (1\cdot1)                &&= \sfrac{1}{2} \\
-  r_1(C) &= \sfrac{1}{2} \cdot (1\cdot0+1\cdot0)        && = 0 \\
-  r_1(D) &= \sfrac{1}{2} \cdot 0                        &&= 0.
+  r_1(A) &= \sfrac{1}{2} \cdot (1\cdot0) + (1-\sfrac{1}{2}) &&= \sfrac{1}{2} \\
+  r_1(B) &= \sfrac{1}{2} \cdot (1\cdot1)                    &&= \sfrac{1}{2} \\
+  r_1(C) &= \sfrac{1}{2} \cdot (1\cdot0+1\cdot0)            && = 0 \\
+  r_1(D) &= \sfrac{1}{2} \cdot 0                            &&= 0.
 \end{alignat*}
 
 We could continue with a second iteration
 %
 \begin{alignat*}{3}
-  r_2(A) &= \sfrac{1}{2} \cdot (1\cdot0) + \sfrac{1}{2}     &&= \sfrac{1}{2} \\
+  r_2(A) &= \sfrac{1}{2} \cdot (1\cdot0) + (1-\sfrac{1}{2}) &&= \sfrac{1}{2} \\
   r_2(B) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2})         &&= \sfrac{1}{4} \\
   r_2(C) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2}+0\cdot0) &&= \sfrac{1}{4} \\
   r_2(D) &= \sfrac{1}{2} \cdot 0                            && = 0, 
@@ -67,10 +68,10 @@ We could continue with a second iteration
 and decide stop at the third one
 %
 \begin{alignat*}{3}
-  r_3(A) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{4}) + \sfrac{1}{2} &&= \sfrac{5}{8} \\
-  r_3(B) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2})                &&= \sfrac{1}{4} \\
-  r_3(C) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{4}+0\cdot0)        &&= \sfrac{1}{8} \\
-  r_3(D) &= \sfrac{1}{2} \cdot 0                                   &&= 0,
+  r_3(A) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{4}) + (1-\sfrac{1}{2}) &&= \sfrac{5}{8} \\
+  r_3(B) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2})                    &&= \sfrac{1}{4} \\
+  r_3(C) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{4}+0\cdot0)            &&= \sfrac{1}{8} \\
+  r_3(D) &= \sfrac{1}{2} \cdot 0                                       &&= 0,
 \end{alignat*}
 %
 which reveals that $B$ is the most similar node to $A$.
