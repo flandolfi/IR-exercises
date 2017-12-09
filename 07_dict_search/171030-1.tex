@@ -14,7 +14,7 @@ Let us given a set of strings $S$ = \{\texttt{pitom}, \texttt{dad},
 
 \solution
 
-Prepend \texttt{\$} to each strings and build all the 2-grams:
+We prepend \texttt{\$} to each strings and build all the 2-grams:
 %
 \begin{longtable}{ccl}
   \texttt{\$p} & $\rightarrow$ & \texttt{pitom}\\
@@ -32,7 +32,7 @@ Prepend \texttt{\$} to each strings and build all the 2-grams:
   \texttt{oo} & $\rightarrow$ & \texttt{zoom} \\
 \end{longtable}
 %
-Take $P$, build its 2-grams and search them in the previous index:
+We then build the 2-grams of $P$ and we search them in the index above:
 %
 \begin{longtable}{ccl}
   \texttt{\$a} & $\rightarrow$ & $\emptyset$\\
@@ -41,14 +41,14 @@ Take $P$, build its 2-grams and search them in the previous index:
   \texttt{om} & $\rightarrow$ & \texttt{pitom}, \texttt{zoom} \\
 \end{longtable}
 %
-Then make the merge of the results, compute the occurrencies, sort decreasely
-and then return the top 1 or 2 results. Since we are looking for results with at
-most 1-edit error, we return the results that share at least $|P| - E \cdot k
-= 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{pitom}.
+Finally, we merge the results, compute the occurrences, sort in decreasing
+order, and then return the top 1 or 2 results. Since we are looking for results
+with at most 1-edit error, we return the results that share at least
+$|P| - E \cdot k = 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{pitom}.
 
 Notice that this solution \emph{may return false positives}. If we want to
-overcome this problem, we have to double check the edit distance of the results
-of each queries using the dynamic programming approach. In this case:
+overcome this problem, we have to check the edit distance of the results
+of each query using the dynamic programming approach. In this case:
 %
 \begin{table}[H]
   \centering
