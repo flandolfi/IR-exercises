@@ -1,0 +1,18 @@
+\exercise
+
+Show the Rocchio's formula and comment on its application and its pros/cons.
+
+\solution
+
+Given the original query vector $q_0$, three weights $\alpha,\beta,\gamma
+\geq 0$, the set of relevant documents $D_r$, and the set of non-relevant
+documents $D_{nr}$, the modified query vector is
+%
+$$q_m = \alpha q_0 + \beta\frac{1}{\left|D_r\right|} \sum_{d_j\in D_r}d_j -
+  \gamma\frac{1}{\left|D_{nr}\right|} \sum_{d_j\in D_{nr}}d_j.$$
+
+The above formula moves the original query vector toward the centroid of
+relevant documents, possibly improving the system's recall.
+
+One possible drawback is that the set of (non-)relevant documents is unknown
+and the user may be reluctant to provide feedback on query results.
