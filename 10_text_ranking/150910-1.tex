@@ -1,0 +1,32 @@
+\exercise
+
+Define \emph{Precision}, \emph{Recall} and $F_1$.
+
+\solution
+
+The \emph{Precision} ($P$) and \emph{Recall} ($R$) measures are defined as
+%
+\begin{align*}
+  P = \frac{tp}{tp + fp}\quad\quad \text{and} \quad\quad R = \frac{tp}{tp + fn}
+\end{align*}
+%
+where $tp$, $fp$ and $fn$ are, respectively, the \emph{true positive}, the
+\emph{false positive} and the \emph{false negative} results of a query on an
+information retrieval system.
+
+The $F$-measure is defined as
+%
+\begin{align*}
+  F = \frac{1}{\frac{\alpha}{P} + \frac{1 - \alpha}{R}} =
+  \frac{(\beta^2 + 1)PR}{\beta^2P + R}\quad\quad \text{where} \quad
+  \beta^2 = \frac{1 - \alpha}{\alpha}
+\end{align*}
+%
+where the weight $\alpha \in \left[ 0, 1 \right]$ (or $\beta^2 \in \left[ 0, \infty \right]$) emphasize the \emph{precision} when
+$\alpha > \frac{1}{2}$ ($\beta < 1$), or the \emph{recall}, when $\alpha <
+\frac{1}{2}$ ($\beta > 1$). $F_1$ is just the $F$-measure with \emph{balanced
+weights}, so $\alpha = \frac{1}{2}$ ($\beta = 1$):
+%
+\begin{align*}
+  F_1 = \frac{2PR}{P + R}
+\end{align*}
