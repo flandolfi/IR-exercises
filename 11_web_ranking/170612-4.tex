@@ -1,6 +1,6 @@
 \exercise
 
-Given the directed graph $G$ consisting of nodes $\{A, B, C, D\}$ and edges 
+Given the directed graph $G$ consisting of nodes $\{A, B, C, D\}$ and edges
 $\{(A,B), (B,C),$ $ (D,C), (C,A)\}$, describe how you compute the similarity
 between node $B$ and node $A$ via Personalized PageRank, and then show the
 result by iterating it once.
@@ -26,24 +26,15 @@ $r_0=(1 \enskip 0 \enskip 0 \enskip 0)^\top$, and $\alpha=\sfrac{1}{2}$. We
 proceed by labelling the initial graph as follows
 %
 \begin{center}
-  \begin{tikzpicture}[scale=0.2]
-    \tikzset{lnode/.append style={inner sep=8pt,style={draw=black,circle}}}    
-    \node[lnode,label=left:$1$] at (26.9,-27.1) {$A$};
-    \node[lnode,label=right:$0$] at (48.1,-27.1) {$B$};
-    \node[lnode,label=right:$0$] at (48.1,-38.9) {$C$};
-    \node[lnode,label=left:$0$] at (26.9,-38.9) {$D$};
-    \draw [black] (29.9,-27.1) -- (45.1,-27.1);
-    \fill [black] (45.1,-27.1) -- (44.3,-26.6) -- (44.3,-27.6);
-    \draw (37.5,-27.6) node [below] {1};
-    \draw [black] (48.1,-30.1) -- (48.1,-35.9);
-    \fill [black] (48.1,-35.9) -- (48.6,-35.1) -- (47.6,-35.1);
-    \draw (47.6,-33) node [left] {1};
-    \draw [black] (29.9,-38.9) -- (45.1,-38.9);
-    \fill [black] (45.1,-38.9) -- (44.3,-38.4) -- (44.3,-39.4);
-    \draw (37.5,-39.4) node [below] {1};
-    \draw [black] (45.48,-37.44) -- (29.52,-28.56);
-    \fill [black] (29.52,-28.56) -- (29.98,-29.38) -- (30.46,-28.51);
-    \draw (36.12,-33.5) node [below] {1};
+  \begin{tikzpicture}
+    \node[draw, circle,label=left:$1$] (a) at (0,2) {$A$};
+    \node[draw, circle,label=right:$0$] (b) at (3, 2) {$B$};
+    \node[draw, circle,label=right:$0$] (c) at (3, 0) {$C$};
+    \node[draw, circle,label=left:$0$] (d) at (0, 0) {$D$};
+    \draw[->, -latex] (a) edge[above] node {\scriptsize 1} (b);
+    \draw[->, -latex] (b) edge[right] node {\scriptsize 1} (c);
+    \draw[->, -latex] (c) edge[below] node {\scriptsize 1} (a);
+    \draw[->, -latex] (d) edge[below] node {\scriptsize 1} (c);
   \end{tikzpicture}
 \end{center}
 %
@@ -63,7 +54,7 @@ We could continue with a second iteration
   r_2(A) &= \sfrac{1}{2} \cdot (1\cdot0) + (1-\sfrac{1}{2}) &&= \sfrac{1}{2} \\
   r_2(B) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2})         &&= \sfrac{1}{4} \\
   r_2(C) &= \sfrac{1}{2} \cdot (1\cdot\sfrac{1}{2}+0\cdot0) &&= \sfrac{1}{4} \\
-  r_2(D) &= \sfrac{1}{2} \cdot 0                            && = 0, 
+  r_2(D) &= \sfrac{1}{2} \cdot 0                            && = 0,
 \end{alignat*}
 %
 and decide stop at the third one
