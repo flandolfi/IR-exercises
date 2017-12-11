@@ -1,0 +1,131 @@
+\exercise
+
+Given the directed graph $G$ consisting of nodes $N = \{ A, B, C, D \}$ and
+edges $E = \{ (B, A)$, $(A, C)$, $(D, C)$, $(A, B) \}$:
+%
+\begin{enumerate}
+
+  \item  Compute one step of the PageRank of $G$’s nodes by assuming that the
+  teleportation step occurs with probability $\frac{1}{2}$ and the starting
+  probability distribution is uniform.
+
+  \item Comment how the similarity between node B and all the other $G$’s nodes
+  can be estimated by using Personalized PageRank. Apply your algorithm over $G$
+  for one step only and with the teleportation step occurring with probability
+  $\frac{1}{2}$.
+
+\end{enumerate}
+
+\solution
+%
+% We can represent the graph $G$ as in the following picture, where all edges are
+% labeled with their transition probability:
+% %
+% \begin{center}
+%   \begin{tikzpicture}
+%     \node[draw, circle] (a) at (0, 2) {$A$};
+%     \node[draw, circle] (b) at (3, 2) {$B$};
+%     \node[draw, circle] (c) at (0, 0) {$C$};
+%     \node[draw, circle] (d) at (3, 0) {$D$};
+%     \draw[->, -latex, bend left] (a) edge[above] node {$\sfrac{1}{2}$} (b);
+%     \draw[->, -latex, bend left] (b) edge[below] node {$\sfrac{1}{2}$} (a);
+%     \draw[->, -latex] (a) edge[left] node {1} (c);
+%     \draw[->, -latex] (d) edge[below] node {1} (c);
+%   \end{tikzpicture}
+% \end{center}
+
+\begin{enumerate}
+  \item We want the principal left eigenvector $r$ of
+  %
+  \begin{align*}
+    P = \alpha\Pi + (1 - \alpha) er_0^\top\ ,
+    \quad\text{where}\quad
+    \Pi_{ij} =
+    \begin{cases*}
+      \left|out(i)\right|^{-1} & if $(i, j)
+      \in E$\\
+      \left| N \right|^{-1} & if $\nexists k.\ (i, k) \in E$\\
+      0 & otherwise
+    \end{cases*}
+  \end{align*}
+  %
+  where $out(i)$ is the set of outgoing links from $i$ and $r_0 =
+  (\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4})^\top$,
+  which is the starting probability vector. We choose $\alpha=\sfrac{1}{2}$ and
+  compute $P$:
+  %
+  \begin{align*}
+    P &= \alpha\Pi +  (1 - \alpha) er_0^\top \\
+      &= \frac{1}{2}
+          \begin{pmatrix}
+            0&\sfrac{1}{2}&\sfrac{1}{2}&0 \\
+            1&0&0&0\\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4} \\
+            0&0&1&0
+          \end{pmatrix}
+          +
+          \left( 1 - \frac{1}{2} \right)
+          \begin{pmatrix}
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4} \\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4} \\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4} \\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}
+          \end{pmatrix} \\
+      &=  \begin{pmatrix}
+            \sfrac{1}{8}&\sfrac{3}{8}&\sfrac{3}{8}&\sfrac{1}{8}\\
+            \sfrac{5}{8}&\sfrac{1}{8}&\sfrac{1}{8}&\sfrac{1}{8}\\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}\\
+            \sfrac{1}{8}&\sfrac{1}{8}&\sfrac{5}{8}&\sfrac{1}{8}
+          \end{pmatrix}
+  \end{align*}
+
+  We then perform the first two iterations starting at $r_0 =
+  (\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4}\enskip\sfrac{1}{4})^\top$:
+  %
+  \begin{align*}
+    r_1^\top = r_0^\top P &= \left(\frac{9}{32}\ \ \frac{7}{32}\ \ \frac{11}{32}\ \
+    \frac{5}{32} \right) \\
+    r_2^\top = r_1^\top P &= r_0^\top P^2 = \left(\frac{71}{256}\ \ \frac{61}{256}\ \
+    \frac{81}{256}\ \ \frac{43}{256} \right)
+  \end{align*}
+
+  \item We can substitute $r_0$ with a \emph{preference vector} which jumps to
+  preferred nodes. If we use a standard basis vector $e_i$, then the probability
+  vector computed by PageRank represent the relatedness between the node $i$ and
+  the other $G$'s nodes.
+
+  To discover the similarities with the node $B$ we use $r_0' = e_2 = (0\ 1\ 0\
+  0)^\top$ and apply PageRank as before. We first recompute P
+  %
+  \begin{align*}
+    P'  &= \alpha\Pi +  (1 - \alpha) er_0'^\top \\
+        &= \frac{1}{2}
+            \begin{pmatrix}
+              0&\sfrac{1}{2}&\sfrac{1}{2}&0 \\
+              1&0&0&0\\
+              \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4} \\
+              0&0&1&0
+            \end{pmatrix}
+            +
+            \left( 1 - \frac{1}{2} \right)
+            \begin{pmatrix}
+              0&1&0&0 \\
+              0&1&0&0 \\
+              0&1&0&0 \\
+              0&1&0&0
+            \end{pmatrix} \\
+        &=  \begin{pmatrix}
+              0&\sfrac{3}{4}&\sfrac{1}{4}&0 \\
+              \sfrac{1}{2}&\sfrac{1}{2}&0&0\\
+              \sfrac{1}{8}&\sfrac{5}{8}&\sfrac{1}{8}&\sfrac{1}{8} \\
+              0&\sfrac{1}{2}&\sfrac{1}{2}&0
+            \end{pmatrix}
+  \end{align*}
+  %
+  and then apply one iteration of the algorithm on $r_0'$
+  %
+  \begin{align*}
+    r_1'^\top = r_0'^\top P' = \left(\sfrac{1}{2}\ \sfrac{1}{2}\ 0\ 0 \right)
+  \end{align*}
+  
+\end{enumerate}
