@@ -1,0 +1,133 @@
+\exercise
+
+Let us given a graph $G$ of directed edges $E = \{(1, 3)$, $(3, 1)$, $(3, 2)$, $(1, 4)$, $(2,1) \}$.
+%
+\begin{enumerate}
+
+  \item Simulate the execution of two steps of the PageRank algorithm, starting
+  with all nodes having score 1, and assuming a teleportation step which favors
+  node 3 (hence, it jumps only to it).
+
+  \item Simulate the HITS computation of $a(3)$ and $h(3)$ by assuming that all
+  $a$- and $h$-scores are initially set to 1.
+
+\end{enumerate}
+
+\solution
+
+\begin{enumerate}
+
+  \item We want the principal left eigenvector $r$ of
+  %
+  \begin{align*}
+    P = \alpha\Pi + (1-\alpha) er_0^\top\quad\quad\text{where}\quad
+    \Pi_{ij} =
+    \begin{cases*}
+      \sfrac{1}{\left|\left\{(i,k)\;:\;(i,k)\in E\right\}\right|}
+        & if $(i,j) \in E$ \\
+      \sfrac{1}{N} & if $i$ is a sink node \\
+      0 & otherwise.
+    \end{cases*}
+  \end{align*}
+
+  We choose $\alpha=\sfrac{1}{2}$, $r_0 =
+  \begin{pmatrix}0&0&1&0\end{pmatrix}^\top$ (to favour the third node) and compute
+  $P$:
+  %
+  \begin{align*}
+    P &=  \alpha\Pi + (1-\alpha) er_0^\top \\
+      &=
+          \frac{1}{2}
+          \begin{pmatrix}
+            0&0&\sfrac{1}{2}&\sfrac{1}{2} \\
+            1&0&0&0 \\
+            \sfrac{1}{2}&\sfrac{1}{2}&0&0 \\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{4}
+          \end{pmatrix}
+          +
+          \left(1-\frac{1}{2}\right)
+          \begin{pmatrix}
+            0&0&1&0 \\
+            0&0&1&0 \\
+            0&0&1&0 \\
+            0&0&1&0
+          \end{pmatrix} \\
+      &=
+          \begin{pmatrix}
+            0&0&\sfrac{3}{4}&\sfrac{1}{4} \\
+            \sfrac{1}{2}&0&\sfrac{1}{2}&0 \\
+            \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{2}&0 \\
+            \sfrac{1}{8}&\sfrac{1}{8}&\sfrac{5}{8}&\sfrac{1}{8}
+          \end{pmatrix}.
+  \end{align*}
+
+  We then perform the power iteration for two steps:
+  %
+  \begin{alignat*}{2}
+    r_0^\top P &=
+      \begin{pmatrix}
+        \sfrac{1}{4}&\sfrac{1}{4}&\sfrac{1}{2}&0
+      \end{pmatrix} &&= r_1^\top \\
+    r_1^\top P &=
+      \begin{pmatrix}
+        \sfrac{1}{4}&\sfrac{1}{8}&\sfrac{9}{16}&\sfrac{1}{16}
+      \end{pmatrix} &&= r_2^\top.
+  \end{alignat*}
+
+  \item We first construct te (unnormalized) adjacency matrix:
+  %
+  \begin{align*}
+    A =
+    \begin{pmatrix}
+      0&0&1&1 \\
+      1&0&0&0 \\
+      1&1&0&0 \\
+      0&0&0&0
+    \end{pmatrix}
+  \end{align*}
+  %
+  then apply one step of HITS:
+  %
+  \begin{align*}
+    h_1 = Ah_0 &=
+    \begin{pmatrix}
+      0&0&1&1 \\
+      1&0&0&0 \\
+      1&1&0&0 \\
+      0&0&0&0
+    \end{pmatrix}
+    \begin{pmatrix}
+      1\\1\\1\\1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      2\\1\\2\\0
+    \end{pmatrix}\\
+    a_1 = A^\top a_0 &=
+    \begin{pmatrix}
+      0&1&1&0 \\
+      0&0&1&0 \\
+      1&0&0&0 \\
+      1&0&0&0
+    \end{pmatrix}
+    \begin{pmatrix}
+      1\\1\\1\\1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      2\\1\\1\\1
+    \end{pmatrix}\\
+  \end{align*}
+  %
+  obtaining $h_1(3) = 2$ and $a_1(3) = 1$.
+
+  Notice that this is just the first step of the algorithm. We could have solved
+  this problem by finding the steady-state values for $h$ and $a$ by computing
+  the eigenvector for $AA^\top$ and $A^\top A$, rispectively. Namely
+  %
+  \begin{align*}
+    h &= AA^\top h \\
+    a &= A^\top A a
+  \end{align*}
+
+\end{enumerate}
