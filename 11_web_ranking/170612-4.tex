@@ -7,7 +7,8 @@ result by iterating it once.
 
 \solution
 
-We apply the Personalized PageRank formula
+We observe that the given graph has no sink nodes, so we do not need to add
+edges from sink nodes to other nodes. We apply the Personalized PageRank formula
 %
 \begin{equation*}
   r(i) = \alpha\cdot\sum_{j\in B(i)} \frac{r(j)}{|out(j)|} +
@@ -21,8 +22,8 @@ where $B(i)$ is the set of nodes linking to $i$, and $out(j)$ is the set of
 outgoing links from $j$.
 
 Furthermore, we assume that the initial probability distribution is
-$r_0=(1 \enskip 0 \enskip 0 \enskip 0)$, and $\alpha=\sfrac{1}{2}$. We proceed
-by labelling the initial graph as follows
+$r_0^\top=(1 \enskip 0 \enskip 0 \enskip 0)$, and $\alpha=\sfrac{1}{2}$. We
+proceed by labelling the initial graph as follows
 %
 \begin{center}
   \begin{tikzpicture}[scale=0.2]
