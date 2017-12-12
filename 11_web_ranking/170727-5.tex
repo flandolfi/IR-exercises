@@ -13,11 +13,11 @@ Given the formula of PersonalizedPageRank
 where $r_0(i) = e_i$ and $0 \le \alpha \le 1$, we compute the CoSimRank as
 %
 \begin{align*}
-  s(i, j) = \frac{1}{1 - c} \sum\limits_{k = 0}^\infty c^k \left\langle r_k(i),\
+  s(i, j) = (1 - c) \sum\limits_{k = 0}^\infty c^k \left\langle r_k(i),\
   r_k(j) \right\rangle
 \end{align*}
 %
-where $0 \le c \le 1$ and $\frac{1}{1 - c}$ is the normalization factor, since
+where $0 \le c \le 1$ and $(1 - c$) is the normalization factor, since
 we want to compute a similarity such that $0 \le s(i, j) \le 1$. This factor is
 given by
 %
