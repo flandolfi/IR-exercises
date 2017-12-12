@@ -1,0 +1,48 @@
+\exercise
+
+Show the formula of CoSimRank and comment on its use and significance.
+
+\solution
+
+Given the formula of PersonalizedPageRank
+%
+\begin{align*}
+  r_{k+1}(i)^\top = \alpha r_k(i)^\top \Pi + (1 - \alpha)r_0(i)^\top
+\end{align*}
+%
+where $r_0(i) = e_i$ and $0 \le \alpha \le 1$, we compute the CoSimRank as
+%
+\begin{align*}
+  s(i, j) = \frac{1}{1 - c} \sum\limits_{k = 0}^\infty c^k \left\langle r_k(i),\
+  r_k(j) \right\rangle
+\end{align*}
+%
+where $0 \le c \le 1$ and $\frac{1}{1 - c}$ is the normalization factor, since
+we want to compute a similarity such that $0 \le s(i, j) \le 1$. This factor is
+given by
+%
+\begin{align*}
+  \sum\limits_{k = 0}^\infty c^k \left\langle r_k(i),\ r_k(j) \right\rangle \le
+  \sum\limits_{k = 0}^\infty c^k = \frac{1}{1 - c}
+\end{align*}
+%
+Notice that we usually compute just few iterations of the sum, since the factor
+$c^k$ converges to 0 very fast. Notice also that $\left\langle r_k(i),\ r_k(j)
+\right\rangle$ represents the \emph{cosine similarity with norm-1} between
+$r_k(i)$ and $r_k(j)$, in fact
+%
+\begin{align*}
+  \frac{\left\langle r_k(i),\ r_k(j) \right\rangle}{\left\lVert r_k(i)
+  \right\rVert_1 \cdot \left\lVert r_k(j) \right\rVert_1} = \left\langle
+  r_k(i),\ r_k(j) \right\rangle
+\end{align*}
+%
+since the norm-1 of a probability vector is 1.
+
+CoSimRank can be seen as the similarity between the vector of probabilities of
+two weighted random walks started from different nodes of a graph, where the
+farthest is the step within the graph, the less it counts in the final
+computation of the similarity.
+
+It substitutes PersonalizedPageRank when, instead of a rank, we want to compute
+similarities between pages, users, or other kind of nodes of a graph.
