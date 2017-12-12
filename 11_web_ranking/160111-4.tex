@@ -123,15 +123,15 @@ Let us given a graph $G$ of directed edges $E = \{(1, 3)$, $(3, 1)$, $(3, 2)$, $
 
   Notice that this is just the first step of the algorithm. We could have solved
   this problem by finding the steady-state values for $h$ and $a$ by computing
-  the principal eigenvector for $AA^\top$ and $A^\top A$, rispectively. Namely
+  the eigenvector for $AA^\top$ and $A^\top A$, rispectively. Namely
   %
   \begin{align*}
     h &= \frac{1}{\lambda_h}AA^\top h \\
     a &= \frac{1}{\lambda_a}A^\top A a.
   \end{align*}
   %
-  where $\lambda_h$ and $\lambda_a$ are their relative eigenvalues. Notice
-  theat, in this case, both $a$ and $h$ are unknown, so we don't need to set an
-  initial state.
+  where $\lambda_h$ and $\lambda_a$ are their relative eigenvalues. Notice that,
+  in this case, both $a$ and $h$ are unknown, so we don't need to set an initial
+  state.
 
 \end{enumerate}
