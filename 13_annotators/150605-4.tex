@@ -1,0 +1,18 @@
+\exercise
+
+Describe how the cosine similarity between a LSI-projected document and a
+LSI-projected query is computed in the reduced space of $k$ dimensions.
+
+\solution
+
+Let $A$ be the $m \times n$ term-document matrix, and $A_k = U_kS_kV_k$
+its low-rank approximation. Given a document $d$ and a query $q$, the
+LSI-projected query
+%
+$$q_k = S_k^{-1} U_k^\top q$$
+%
+is compared with the projected document
+%
+$$d_k = S_k^{-1} U_k^\top d$$
+%
+with the standard dot product $q_k^\top d_k$.
