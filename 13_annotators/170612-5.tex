@@ -1,0 +1,28 @@
+\exercise
+
+Given a topic annotator, like TagME:
+\begin{itemize}
+  \item detail its goal
+  \item define the features link probability of an anchor, commonness of a
+    wiki-page w.r.t. an anchor
+  \item define the ratio behind the Milne-Witten similarity measure and for
+    which purpose it is used in TagME.
+\end{itemize}
+
+\solution
+
+The goal of a topic annotator is to identify a sequence of terms in an input
+text and to annotate them with un-ambiguous entities drawn from a catalog, for
+example augmenting the text with hyperlinks to Wikipedia pages. For the second
+point, see the solution of Exercise \ref{13_annotators:tagme}.
+
+The Milne-Witten similarity measure is
+%
+$$sr(p_a,p_b) = \frac{\log(\max(|A|,|B|)) - \log(|A \cap B|)}{\log(|W|) -
+  \log(\min(|A|,|B|))},$$
+%
+where $p_a$ and $p_b$ are two articles, $A$ and $B$ are the set of articles that
+link to $p_a$ and $p_b$ respectively, and $W$ is the set of all articles in
+Wikipedia. The formula above is used in TagME to disambiguate the sense of an
+anchor $a$, viz. to select the correct page that $a$ must point to among all the
+possible pages, i.e. senses of $a$.
