@@ -1,0 +1,26 @@
+\exercise
+
+In the context of a text annotator like TagMe, define
+%
+\begin{itemize}
+  \item the link probability of an anchor text $a$ with respect to the Wikipedia
+    knowledge graph, and
+  \item the commonness of the link between an anchor $a$ and a Wikipedia page
+    $p$.
+\end{itemize}
+
+\solution
+
+If we denote by $freq(a)$ the number of times the text $a$ occurs in Wikipedia,
+and by $link(a)$ the number of times $a$ occurs as an anchor in Wikipedia, then
+the link probability that an occurrence of $a$ is set as an anchor is
+%
+$$lp(a)=\frac{link(a)}{freq(a)}.$$
+
+The \emph{prior}-probability (commonness) that an occurrence of an anchor $a$
+points to a page $p$ belonging to the set of Wikipedia pages linked by $a$ is
+%
+$$\mathbb{P}(p \mid a)=\frac{link_p(a)}{link(a)},$$
+%
+where $link_p(a) \leq link(a)$ is the number of times that $a$ points to
+$p$.
