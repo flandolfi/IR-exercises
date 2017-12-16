@@ -10,9 +10,10 @@ Given the list of integers $S=(2,4,8,10,13,14,15,21)$:
 \solution
 \label{09_posting_compression:elias}
 
-Each of the $n=16$ integers can be represented in binary with $u=\lceil\log_2
+Each of the $n=8$ integers can be represented in binary with $b=\lceil\log_2
 21\rceil=5$ bits. First, we list the representation of the integers with a
-separator after the $z=\lceil\log_2n\rceil=3$ most significant bits:
+separator before the $w=\lceil\log_2\frac{2^b}{n}\rceil=2$ less significant
+bits:
 %
 \begin{center}
   \begin{tabular}{ c | r | l }
@@ -28,20 +29,21 @@ separator after the $z=\lceil\log_2n\rceil=3$ most significant bits:
   \end{tabular}
 \end{center}
 %
-Then, we build a vector  $L$ concatenating the $u-z$ less significant bits of
-each number
+Then, we build a vector $L$ concatenating the $w$ less significant bits of each
+number
 %
 $$L = 10\; 00\; 00\; 10\; 01\; 10\; 11\; 01.$$
 
 Finally, we complete the Elias-Fano encoding storing, for each binary string $S$
-of $z$ bits (viz. from $S=000$ to $S=111$), the inverse-unary representation of
-the number of consecutive $S$ in the second column of the above table, obtaining
+of $b-w$ bits (viz. from $S=000$ to $S=111$), the inverse-unary representation
+of the number of consecutive $S$ in the second column of the above table,
+obtaining
 %
 $$H=10\;10\;110\;\underbracket{1110}_{\clubsuit}\;0\;10\;0\;0.$$
 %
 For example, $\clubsuit$ is the inverse-unary representation of 3, the number of
 011s in the second column.
 
-Lastly, to get the $i=5$th element of $S$, we retrieve the $i$-th group of $u-z$
+Lastly, to get the $i=5$th element of $S$, we retrieve the $i$-th group of $w$
 bits in $L$, namely 01, and prepend the binary encoding of $Select_1(H,
-i)-i=8-5=3$ in $z$ bits, namely 011.
+i)-i=8-5=3$ in $b-w$ bits, namely 011.
