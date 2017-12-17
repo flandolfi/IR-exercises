@@ -1,0 +1,23 @@
+\exercise
+
+Given an annotator, such as TagMe, show how you could empower the TF-IDF vector
+representation in order to perform ``semantic'' comparisons between documents by
+using still the cosine similarity.
+
+\solution
+
+Let $v_i$ be the TF-IDF vector of a document $d_i$ (e.g., a column of the TF-IDF
+matrix in Exercise \ref{10_text_ranking:tfid}). Note that $v_i$ has one
+component for each term in the collection.
+
+We can augment $v_i$ with $w$ components, that represent the relatedness between
+$d_i$ and some concepts $c_1, c_2, \dots, c_w$.
+The concepts can be explicitly defined by humans, or be the set of
+Wikipedia articles. In the latter case, $w$ is the size of Wikipedia and the
+extra components are the relevance of the Wikipedia articles to $d_i$.
+
+In this setting, a topic annotator can help to get a score of the relatedness
+between the document and a concept.
+
+Given another document $d_j$, we can perform a semantic comparison with the dot
+product between the $d_i$'s and $d_j$'s augmented vectors.
