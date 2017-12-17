@@ -33,4 +33,4 @@ initialization (\emph{without inserting any string in the dictionary}), for each
 of its slot we have to allocate 2 pointers (one for the string, one for the next
 element of the bucket), so $64 \cdot m$ bits, where $m$ is the dimension of the
 array. For the Bloom Filter, instead, we have to allocate just $m$ bits, so
-the hash table is alway disadvantageous.
+the hash table is always disadvantageous.
