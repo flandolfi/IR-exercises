@@ -23,12 +23,13 @@
 \end{enumerate}
 
 \solution
+\label{10_text_ranking:tfid}
 
 \begin{enumerate}
 
   \item The TF-IDF$(w, d)$ weight is defined as $$\text{TF-IDF}(w, d) =
   \text{TF}(w, d) \times \text{IDF}(w)$$ where $\text{TF}(w, d)$ is the number
-  of occurrencies of the word $w$ in the document $d$, while $\text{IDF}(w)$ is
+  of occurrences of the word $w$ in the document $d$, while $\text{IDF}(w)$ is
   defined as $$\text{IDF}(w) = \log \frac{N}{\text{DF}(w)}$$ where $N$ is the
   total number of documents in our collection and $\text{DF}(w)$ is the number
   of documents containing the word $w$.
