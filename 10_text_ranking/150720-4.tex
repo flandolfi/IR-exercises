@@ -71,10 +71,10 @@
   since their dot product have the same value: $$ T_3 \cdot T_1 = T_3 \cdot T_4
   = 3\log^2\frac{4}{3}.$$
 
-  \item For every word $w$ we ha ve in memory the value of $\text{DF}(w)$ (the
+  \item For every word $w$ we have in memory the value of $\text{DF}(w)$ (the
   length of its posting list), so the value of $\text{IDF}(w)$ is implicitly
-  available.  For every document $d$ in the posting list of the word $w$,
-  instead, we can store its frequency $\text{TF}(w, d)$, which is tipically
+  available. For every document $d$ in the posting list of the word $w$,
+  instead, we can store its frequency $\text{TF}(w, d)$, which is typically
   small and thus can be stored in unary or gamma coding.
 
 \end{enumerate}
