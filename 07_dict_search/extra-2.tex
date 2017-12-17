@@ -44,10 +44,10 @@ Take $P_1$, build its 2-grams and search them in the previous index:
   \texttt{ng} & $\rightarrow$ & \texttt{bingo} \\
 \end{longtable}
 %
-Then make the merge of the results, compute the occurrencies, sort decreasely
-and then return the top 1 or 2 results. Since we are looking for results with at
-most 1-edit error, we return the results that share at least $|P_1| - E \cdot k
-= 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{bingo}.
+Finally, we merge the results, compute the occurrences, sort in decreasing
+order, and then return the top 1 or 2 results. Since we are looking for results
+with at most 1-edit error, we return the results that share at least $|P_1| -
+E \cdot k = 4 - 2 \cdot 1 = 2$ 2-grams, i.e., only \texttt{bingo}.
 
 Now take $P_2$ and procede as before:
 %
