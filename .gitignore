@@ -1,3 +1,4 @@
 .atom-build.yml
 out/*
 all.tex
+.DS_Store
