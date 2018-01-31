@@ -1,12 +1,12 @@
 \exercise
 
-Given the set $D =$ \{ \texttt{bingo}, \texttt{boss}, \texttt{bull},
+Given the set $D =$ \{ \texttt{bingo}, \texttt{boss}, \texttt{box},
 \texttt{bull}, \texttt{call} \}
 %
 \begin{enumerate}
   \item build a 2-gram index over $D$;
   \item describe the algorithm that solves 1-error queries over $D$ and test it
-  with $P_1 = \texttt{bang}$ and $P_2 = \texttt{bang}$;
+  with $P_1 = \texttt{bang}$ and $P_2 = \texttt{ball}$;
   \item check for 1-errors in the more sophisticated solution with $D_1$ and
   $D_2$.
 \end{enumerate}
@@ -56,7 +56,7 @@ Now take $P_2$ and procede as before:
   \texttt{box}, \texttt{bull} \\
   \texttt{ba} & $\rightarrow$ & $\emptyset$ \\
   \texttt{al} & $\rightarrow$ & \texttt{call} \\
-  \texttt{ll} & $\rightarrow$ & \texttt{bull}, \texttt{call} 
+  \texttt{ll} & $\rightarrow$ & \texttt{bull}, \texttt{call}
 \end{longtable}
 %
 In this case, \texttt{bull} and \texttt{call} are returned.
