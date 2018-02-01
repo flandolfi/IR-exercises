@@ -30,7 +30,8 @@ $$S'=(1,3,4,5,9,16,23,27,28,31,40).$$
 
 Then, in order to encode the values obtained as binary strings, we use $b = \lceil \log_2{40}\rceil = 6$ bit.
 $w = \lceil log_2{\frac{2^b}{n}}\rceil = 3$ of this bits are used to produce the $L$ sequence, and the remaining ones
-are used to produce the $H$ sequence.
+are used to produce the $H$ sequence\footnote{Refer to the note about integers' encoding given during the course in order
+to better understand how sequence $H$ is constructed.}.
 
 \begin{center}
   \begin{tabular}{ c | c | c }
