@@ -10,29 +10,34 @@ Given a sequence of integers $S=(1, 6, 15, 18, 21, 24, 30)$, encode them using:
 
 \solution
 
-The following table shows the gamma and delta encodings for the $n=7$ given
-integers:
+For the first two encodings, since we have a monotonic increasing sequence, we first apply the \emph{gap encoding}, obtaining
+%
+$$S'=(1, 5, 9, 3, 3, 3, 6).$$
+%
+The following table shows the gamma and delta encodings for the $n=7$
+integers of $S'$:
 %
 \begin{center}
-  \begin{tabular}{ c | l | l | l }
-    $S_i$ & Binary & Gamma       & Delta       \\ \hline
-    1     & 1      & 1           & 1           \\
-    6     & 110    & 00\;110     & 011\;10     \\
-    15    & 1111   & 000\;1111   & 00100\;111  \\
-    18    & 10010  & 0000\;10010 & 00101\;0010 \\
-    21    & 10101  & 0000\;10101 & 00101\;0101 \\
-    24    & 11000  & 0000\;11000 & 00101\;1000 \\
-    30    & 11110  & 0000\;11110 & 00101\;1110 \\
+  \begin{tabular}{ c | c | l | l | l }
+    $S_i$ & $S'_i$ & Binary & Gamma       & Delta       \\ \hline
+    1     &   1    & 1      & 1           & 1           \\
+    6     &   5    & 101    & 00\;101     & 011\;01     \\
+    15    &   9    & 1001   & 000\;1001   & 00100\;001  \\
+    18    &   3    & 11     & 0\;11       & 010\;1      \\
+    21    &   3    & 11     & 0\;11       & 010\;1      \\
+    24    &   3    & 11     & 0\;11       & 010\;1      \\
+    30    &   6    & 110    & 00\;110     & 011\;10     \\
   \end{tabular}
 \end{center}
 
-For the Elias-Fano encoding, we encode the integers in $S$ using $b = \lceil \log_2{30} \rceil = 5$ bit,
-$w = \lceil \log_2{\frac{2^b}{n}} \rceil = \lceil \log_2{\frac{2^5}{7}} \rceil = 3$ of this bits are used to produce the
-$L$ sequence, and $z = b - w = 5 - 3 = 2$ are used to procude the $H$ sequence.
-
+For the Elias-Fano encoding, instead, we encode the integers in $S$ using $b =
+\lceil \log_2{30} \rceil = 5$ bits, separating the $w = \lceil
+\log_2{\frac{2^b}{n}} \rceil = \lceil \log_2{\frac{2^5}{7}} \rceil = 3$ less
+significant bits, as in the following table:
+%
 \begin{center}
   \begin{tabular}{ c | c | c }
-    $S'$ & $z$ & $w$ \\ \hline
+    $S_i$ & \multicolumn{2}{c}{$(S_i)_2$} \\ \hline
      1 & 00 & 001 \\
      6 & 00 & 110 \\
      15 & 01 & 111 \\
@@ -42,8 +47,15 @@ $L$ sequence, and $z = b - w = 5 - 3 = 2$ are used to procude the $H$ sequence.
      30 & 11 & 110
   \end{tabular}
 \end{center}
-
-\begin{align*}
-    &L = 001110111010101000110, \\
-    &H = 11010110110.
-\end{align*}
+%
+Then, we build the vector $L$ concatenating the $w$ less significant bits of
+each number
+%
+$$ L = 001\;110\;111\;010\;101\;000\;110\;. $$
+%
+Finally, we complete the Elias-Fano encoding storing, for each binary string $s$
+of $z = b - w = 5 - 3 = 2$ bits (viz. from $s=00$ to $s=11$), the
+inverse-unary representation of the number of consecutive $s$ in the second
+column of the above table, obtaining
+%
+$$H = 110\;10\;110\;110\;.$$

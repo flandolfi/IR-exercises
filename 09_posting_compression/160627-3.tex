@@ -29,15 +29,15 @@ bits:
   \end{tabular}
 \end{center}
 %
-Then, we build a vector $L$ concatenating the $w$ less significant bits of each
-number
+Then, we build the vector $L$ concatenating the $w$ less significant bits of
+each number
 %
 $$L = 10\; 00\; 00\; 10\; 01\; 10\; 11\; 01.$$
 
-Finally, we complete the Elias-Fano encoding storing, for each binary string $S$
-of $b-w$ bits (viz. from $S=000$ to $S=111$), the inverse-unary representation
-of the number of consecutive $S$ in the second column of the above table,
-obtaining
+Finally, we complete the Elias-Fano encoding storing, for each binary string $s$
+of $z = b-w = 3$ bits (viz. from $s=000$ to $s=111$), the inverse-unary
+representation of the number of consecutive $s$ in the second column of the
+above table, obtaining
 %
 $$H=10\;10\;110\;\underbracket{1110}_{\clubsuit}\;0\;10\;0\;0.$$
 %

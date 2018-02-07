@@ -28,14 +28,14 @@ with reverse gap encoding:
 
 $$S'=(1,3,4,5,9,16,23,27,28,31,40).$$
 
-Then, in order to encode the values obtained as binary strings, we use $b = \lceil \log_2{40}\rceil = 6$ bit.
-$w = \lceil log_2{\frac{2^b}{n}}\rceil = 3$ of this bits are used to produce the $L$ sequence, and the remaining ones
-are used to produce the $H$ sequence\footnote{Refer to the note about integers' encoding given during the course in order
-to better understand how sequence $H$ is constructed.}.
-
+Then, in order to encode the values obtained as binary strings, we encode the
+integers in $S'$ using $b = \lceil \log_2{40}\rceil = 6$ bits, separating the
+$w = \lceil log_2{\frac{2^b}{n}}\rceil = 3$ less significant bits, as in the
+following table:
+%
 \begin{center}
   \begin{tabular}{ c | c | c }
-    $S'$ & $z$ & $w$ \\ \hline
+    $S'$ & \multicolumn{2}{c}{$(S'_i)_2$} \\ \hline
      1 & 000 & 001 \\
      3 & 000 & 011 \\
      4 & 000 & 100 \\
@@ -49,8 +49,15 @@ to better understand how sequence $H$ is constructed.}.
      40 & 011 & 111
   \end{tabular}
 \end{center}
-
-\begin{align*}
-    &L = 001011100101001000111011100111000, \\
-    &H = 1111010110111001000.
-\end{align*}
+%
+Then, we build the vector $L$ concatenating the $w$ less significant bits of
+each number
+%
+$$L = 001\;011\;100\;101\;001\;000\;111\;011\;100\;111\;000\;,$$
+%
+Finally, we complete the Elias-Fano encoding storing, for each binary string $s$
+of $z = b - w = 5 - 3 = 2$ bits (viz. from $s=000$ to $s=111$), the
+inverse-unary representation of the number of consecutive $s$ in the second
+column of the above table, obtaining
+%
+$$H = 11110\;10\;110\;1110\;01\;0\;0\;0\;.$$
