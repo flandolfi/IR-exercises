@@ -6,6 +6,7 @@ This folder contains *only* exercises on Dictionary (Exact) Search.
 
 | Test Date                                                                                                  | Exercise | Points       | Topic                 | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:------------:|:---------------------:|:----------------------------------------------------------------------------------:|
+| [29/10/18](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir18/ir181029.docx)      |     1    |     5 + 3    | 2-level indexing      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     1    |     4 + 3    | k-gram Index          | ![Status](https://img.shields.io/badge/Status-Solved-green.svg)                    |
 | [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     5    |       5      | 1-error Match         | ![Status](https://img.shields.io/badge/Status-Solved-green.svg)                    |
 | [05/09/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170905.docx)      |     1    |   4 + 3 + 3  | k-gram Index          | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |

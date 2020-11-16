@@ -6,6 +6,7 @@ This folder contains *only* exercises on Locality-Sensitive Hashing (LSH).
 
 | Test Date                                                                                                  | Exercise | Points    | Topic              | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:---------:|:------------------:|:----------------------------------------------------------------------------------:|
+| [29/10/18](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir18/ir181029.docx)      |    3.3   |     4     | LSH                | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [30/10/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir17/ir171030.docx)      |     4    |     5     | LSH                | ![Status](https://img.shields.io/badge/Status-Solved-green.svg)                    |
 | [12/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170112.docx)      |     3    |     4     | LSH                | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [12/01/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170112.docx)      |   Bonus  |    Lode   | LSH                | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
