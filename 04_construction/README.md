@@ -6,6 +6,7 @@ This folder contains *only* exercises on Index Construction.
 
 | Test Date                                                                                                  | Exercise | Points | Topic              | Status                                                                             |
 |:----------------------------------------------------------------------------------------------------------:|:--------:|:------:|:------------------:|:----------------------------------------------------------------------------------:|
+| [29/10/18](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir18/ir181029.docx)      |    3.2   |    4   | Distributed Index  | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)
 | [05/09/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170905.docx)      |     4    |  2 + 4 | Dynamic Index      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [12/06/17](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir16/ir170612.docx)      |     3    |    3   | Distributed Index  | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
 | [29/07/14](http://didawiki.di.unipi.it/lib/exe/fetch.php/magistraleinformatica/ir/ir13/ir140729.docx)      |     1    |  3 + 2 | Dynamic Index      | ![Status](https://img.shields.io/badge/Status-Unsolved-red.svg)                    |
