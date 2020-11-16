@@ -13,7 +13,7 @@ Like the course, the various solutions will be divided into the following topics
   Boolean retrieval model. Matrix document-term. Inverted list: dictionary +
   postings. How to implement an AND, OR and NOT queries, and their time
   complexities.
-  2. [**Crawling**](https://github.com/flandolfi/IR-exercises/tree/master/02_crawling):
+  2. [**Crawling**](02_crawling):
   Mercator, Bloom Filters, Consistent Hashing, Web graph.
   3. [**Locality-Sensitive Hashing**](https://github.com/flandolfi/IR-exercises/tree/master/03_lsh):
   K-means, Hamming distance, Locality Sensitive Hashing (LSH).
