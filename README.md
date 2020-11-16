@@ -9,61 +9,61 @@ course, taught by [Prof. Paolo Ferragina](http://www.di.unipi.it/~ferragin/).
 
 Like the course, the various solutions will be divided into the following topics:
 
-  1. [**Introduction**](https://github.com/flandolfi/IR-exercises/tree/master/01_introduction):
+  1. [**Introduction**](01_introduction):
   Boolean retrieval model. Matrix document-term. Inverted list: dictionary +
   postings. How to implement an AND, OR and NOT queries, and their time
   complexities.
   2. [**Crawling**](02_crawling):
   Mercator, Bloom Filters, Consistent Hashing, Web graph.
-  3. [**Locality-Sensitive Hashing**](https://github.com/flandolfi/IR-exercises/tree/master/03_lsh):
+  3. [**Locality-Sensitive Hashing**](03_lsh):
   K-means, Hamming distance, Locality Sensitive Hashing (LSH).
-  4. [**Index Construction**](https://github.com/flandolfi/IR-exercises/tree/master/04_construction):
+  4. [**Index Construction**](04_construction):
   The issue of hierarchical memories: I/O-model. Index construction: multi-way
   mergesort, BSBI and SPIMI. Sketch on MapReduce. Distributed indexing:
   Term-based vs Doc-based partitioning. Dynamic indexing: two indexes, a
   cascade of indexes.
-  5. [**Documents Compression**](https://github.com/flandolfi/IR-exercises/tree/master/05_doc_compression):
+  5. [**Documents Compression**](05_doc_compression):
   Compressed storage of documents: LZ-based compression. Storage and
   Transmission of single/group of file(s): Delta compression (Zdelta), File
   Synchronization (rsync, zsync), and Set Reconciliation.
-  6. [**Parsing and Text Laws**](https://github.com/flandolfi/IR-exercises/tree/master/06_parsing):
+  6. [**Parsing and Text Laws**](06_parsing):
   Parsing: tokenization, normalization, lemmatization, stemming, thesauri.
   Statistical properties of texts: Zipf law: classical and generalized, Heaps
   law, Luhn's consideration.
-  7. [**Dictionary Search**](https://github.com/flandolfi/IR-exercises/tree/master/07_dict_search):
+  7. [**Dictionary Search**](07_dict_search):
   Exact search: hashing with chaining, univeral hashing, cuckoo hashing. Prefix
   search: compacted trie, front coding, 2-level indexing. Edit distance via
   brute-force approach, or Dynamic Programming (possibly weighted). Overlap
   measure with k-gram index. Edit distance with k-gram index. One-error match.
   Wild-card queries (permuterm, k-gram). Phonetic match. Context-sensitive
   match.
-  8. [**Query Resolver**](https://github.com/flandolfi/IR-exercises/tree/master/08_query_resolver):
+  8. [**Query Resolver**](08_query_resolver):
   Query processing: skip pointers (with solution based on dynamic programming),
   caching, phrase queries. Zone index and tiered index. The auto-complete
   problem and its solutions for the top-1, top-2, ..., top-k strings.
-  9. [**Postings Compression**](https://github.com/flandolfi/IR-exercises/tree/master/09_posting_compression):
+  9. [**Postings Compression**](09_posting_compression):
   Posting list compression, codes: gamma, delta, variable bytes, PForDelta and
   Elias-Fano. Rank and Select data structures, two approaches: the case of B
   untouched and extra o(B) bits, and the case of Elias-Fano's approach with B
   compressed. Succinct representation of binary trees and its navigational
   operations (heap like notation), LOUDS.
-  10. [**Text Ranking**](https://github.com/flandolfi/IR-exercises/tree/master/10_text_ranking):
+  10. [**Text Ranking**](10_text_ranking):
   Text-based ranking: dice, jaccard, tf-idf. Vector space model. Storage of
   tf-idf and use for computing document-query similarity. Fast top-k retrieval:
   high idf, champion lists, many query-terms, fancy hits, clustering. Exact
   Top-K: WAND and blocked-WAND. Relevance feedback, Rocchio, pseudo-relevance
   feedback, query expansion. Performance measures: precision, recall, F1 and
   user happiness.
-  11. [**Web Ranking**](https://github.com/flandolfi/IR-exercises/tree/master/11_web_ranking):
+  11. [**Web Ranking**](11_web_ranking):
   Random Walks. Link-based ranking: pagerank, topic-based pagerank, personalized
   pagerank, CoSim rank, HITS.
-  12. [**Projections**](https://github.com/flandolfi/IR-exercises/tree/master/12_projections):
+  12. [**Projections**](12_projections):
   Projections to smaller spaces: Latent Semantic Indexing (LSI). Random
   Projections: Johnson-Linderstauss Lemma and its applications.
-  13. [**Topic Annotator**](https://github.com/flandolfi/IR-exercises/tree/master/13_annotators):
+  13. [**Topic Annotator**](13_annotators):
   Semantic-annotation tools: basics, Wikipedia structure, TAGME and other
   annotators. How to evaluate those systems.
-  14. [**Lucene**](https://github.com/flandolfi/IR-exercises/tree/master/14_lucene):
+  14. [**Lucene**](14_lucene):
   Introduction to Lucene.
 
 ## Topics covered by the exams ##
